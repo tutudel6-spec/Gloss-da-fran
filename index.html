@@ -8,21 +8,17 @@
         body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 100px; }
         header { text-align: center; padding: 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 10; }
         .logo { font-size: 20px; font-weight: bold; letter-spacing: 5px; }
-        
         .nav { display: flex; justify-content: center; gap: 20px; padding: 15px; border-bottom: 1px solid #eee; }
-        .nav div { cursor: pointer; font-weight: bold; font-size: 12px; text-transform: uppercase; color: #888; }
+        .nav div { cursor: pointer; font-weight: bold; font-size: 12px; text-transform: uppercase; color: #888; padding: 5px 0; }
         .nav div.active { color: #000; border-bottom: 2px solid #000; }
-
         .vitrine { display: none; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
         .vitrine.active { display: grid; }
-        
         .card { border: 1px solid #eee; padding: 10px; border-radius: 8px; text-align: center; }
-        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; }
-        .card h3 { font-size: 12px; margin: 10px 0 5px; height: 30px; }
-        .card p { color: #d63384; font-weight: bold; margin-bottom: 10px; }
+        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 5px; background: #f9f9f9; }
+        .card h3 { font-size: 11px; margin: 10px 0 5px; height: 30px; overflow: hidden; }
+        .card p { color: #d63384; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
         .btn { background: #000; color: #fff; border: none; padding: 10px; width: 100%; font-weight: bold; border-radius: 4px; font-size: 10px; cursor: pointer; }
-        
-        #btn-sacola { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #000; color: #fff; padding: 15px; text-align: center; border-radius: 30px; text-decoration: none; font-weight: bold; display: none; }
+        #btn-sacola { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #000; color: #fff; padding: 15px; text-align: center; border-radius: 30px; text-decoration: none; font-weight: bold; display: none; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
@@ -35,91 +31,22 @@
 </div>
 
 <div id="v-gloss" class="vitrine active">
-    <div class="card">
-        <img src="IMG_6237.webp"><h3>LipChilli Original</h3><p>R$ 49,00</p>
-        <button class="btn" onclick="add('LipChilli Original', 49.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6239.webp"><h3>ChocoChilli</h3><p>R$ 49,00</p>
-        <button class="btn" onclick="add('ChocoChilli', 49.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6240.jpeg"><h3>PinkChilli</h3><p>R$ 49,00</p>
-        <button class="btn" onclick="add('PinkChilli', 49.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6241.jpeg"><h3>Chilli Especial</h3><p>R$ 49,00</p>
-        <button class="btn" onclick="add('Chilli Especial', 49.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6250.jpeg"><h3>Gloss Glacê</h3><p>R$ 42,00</p>
-        <button class="btn" onclick="add('Gloss Glacê', 42.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6251.jpeg"><h3>Gloss Vini</h3><p>R$ 42,00</p>
-        <button class="btn" onclick="add('Gloss Vini', 42.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6252.webp"><h3>Gloss Gold</h3><p>R$ 46,00</p>
-        <button class="btn" onclick="add('Gloss Gold', 46.00)">ADICIONAR</button>
-    </div>
+    <div class="card"><img src="IMG_6237.webp"><h3>LipChilli Original</h3><p>R$ 49,00</p><button class="btn" onclick="add('LipChilli Original', 49)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6239.webp"><h3>ChocoChilli</h3><p>R$ 49,00</p><button class="btn" onclick="add('ChocoChilli', 49)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6240.jpeg"><h3>PinkChilli</h3><p>R$ 49,00</p><button class="btn" onclick="add('PinkChilli', 49)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6241.jpeg"><h3>Chilli Especial</h3><p>R$ 49,00</p><button class="btn" onclick="add('Chilli Especial', 49)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6250.jpeg"><h3>Gloss Glacê</h3><p>R$ 42,00</p><button class="btn" onclick="add('Gloss Glacê', 42)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6251.jpeg"><h3>Gloss Vini</h3><p>R$ 42,00</p><button class="btn" onclick="add('Gloss Vini', 42)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6252.webp"><h3>Gloss Gold</h3><p>R$ 46,00</p><button class="btn" onclick="add('Gloss Gold', 46)">ADICICIONAR</button></div>
 </div>
 
 <div id="v-perfumes" class="vitrine">
-    <div class="card">
-        <img src="IMG_6244.jpeg"><h3>Luxury Essence</h3><p>R$ 199,00</p>
-        <button class="btn" onclick="add('Luxury Essence', 199.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6245.jpeg"><h3>Velvet Rose</h3><p>R$ 199,00</p>
-        <button class="btn" onclick="add('Velvet Rose', 199.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6253.png"><h3>Midnight Dream</h3><p>R$ 210,00</p>
-        <button class="btn" onclick="add('Midnight Dream', 210.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6254.jpeg"><h3>Pure Summer</h3><p>R$ 175,00</p>
-        <button class="btn" onclick="add('Pure Summer', 175.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6256.png"><h3>Sweet Garden</h3><p>R$ 185,00</p>
-        <button class="btn" onclick="add('Sweet Garden', 185.00)">ADICIONAR</button>
-    </div>
-    <div class="card">
-        <img src="IMG_6260.png"><h3>Night Blue</h3><p>R$ 225,00</p>
-        <button class="btn" onclick="add('Night Blue', 225.00)">ADICIONAR</button>
-    </div>
+    <div class="card"><img src="IMG_6244.jpeg"><h3>Luxury Essence</h3><p>R$ 199,00</p><button class="btn" onclick="add('Luxury Essence', 199)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6245.jpeg"><h3>Velvet Rose</h3><p>R$ 199,00</p><button class="btn" onclick="add('Velvet Rose', 199)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6253.png"><h3>Midnight Dream</h3><p>R$ 210,00</p><button class="btn" onclick="add('Midnight Dream', 210)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6254.jpeg"><h3>Pure Summer</h3><p>R$ 175,00</p><button class="btn" onclick="add('Pure Summer', 175)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6256.png"><h3>Sweet Garden</h3><p>R$ 185,00</p><button class="btn" onclick="add('Sweet Garden', 185)">ADICIONAR</button></div>
+    <div class="card"><img src="IMG_6260.png"><h3>Night Blue</h3><p>R$ 225,00</p><button class="btn" onclick="add('Night Blue', 225)">ADICIONAR</button></div>
 </div>
 
-<a href="pagamento.html" id="btn-sacola">VER SACOLA (R$ <span id="total">0</span>)</a>
-
-<script>
-    let cart = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    function add(n, p) {
-        cart.push({nome: n, preco: p});
-        localStorage.setItem('carrinho', JSON.stringify(cart));
-        renderCart();
-        alert(n + " adicionado!");
-    }
-
-    function renderCart() {
-        if(cart.length > 0) {
-            document.getElementById('btn-sacola').style.display = 'block';
-            let t = cart.reduce((acc, item) => acc + item.preco, 0);
-            document.getElementById('total').innerText = t.toFixed(2);
-        }
-    }
-
-    function aba(cat) {
-        document.getElementById('v-gloss').classList.toggle('active', cat === 'gloss');
-        document.getElementById('v-perfumes').classList.toggle('active', cat === 'perfumes');
-        document.getElementById('t-gloss').classList.toggle('active', cat === 'gloss');
-        document.getElementById('t-perfumes').classList.toggle('active', cat === 'perfumes');
-    }
-
-    window.onload = renderCart;
-</script>
-</body>
-</html>
+    
