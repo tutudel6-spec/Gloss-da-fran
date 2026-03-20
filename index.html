@@ -1,51 +1,111 @@
 
 <!DOCTYPE html>
 
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gloss LipChilli - Fran</title>
+    <title>Loja Fran - Gloss Collection</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; text-align: center; color: #1a1a1a; }
-        header { border-bottom: 1px solid #eee; padding: 15px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; }
-        .container { padding: 20px; max-width: 450px; margin: auto; }
-        .main-img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .brand { color: #888; text-transform: uppercase; font-size: 12px; margin-top: 20px; font-weight: 600; }
-        .product-name { font-size: 22px; font-weight: 700; margin: 10px 0; line-height: 1.2; }
-        .price { font-size: 32px; font-weight: 700; color: #000; margin: 15px 0; }
-        .btn-buy { 
-            background: #d63384; color: #fff; display: block; padding: 18px; 
-            text-decoration: none; font-weight: bold; border-radius: 4px; 
-            margin-top: 20px; text-transform: uppercase; letter-spacing: 1px;
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; color: #1a1a1a; text-align: center; }
+        header { border-bottom: 1px solid #eee; padding: 20px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; font-size: 14px; }
+        .banner { background: #000; color: #fff; padding: 10px; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .vitrine { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* 2 colunas no celular */
+            gap: 15px; 
+            padding: 20px; 
+            max-width: 1000px; 
+            margin: auto; 
         }
-        .footer-info { margin-top: 30px; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 20px; }
+
+        .produto-card { 
+            border: 1px solid #f9f9f9; 
+            padding: 10px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            color: inherit;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .produto-card:hover { border-color: #d63384; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+        .produto-card img { 
+            width: 100%; 
+            aspect-ratio: 1/1; 
+            object-fit: cover; 
+            border-radius: 5px; 
+        }
+
+        .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 12px; font-weight: bold; }
+        .name { font-size: 13px; font-weight: 700; margin: 5px 0; height: 35px; overflow: hidden; line-height: 1.2; }
+        .price { font-size: 16px; font-weight: 800; color: #000; margin-top: 5px; }
+        
+        .btn-comprar { 
+            background: #d63384; 
+            color: #fff; 
+            width: 100%; 
+            padding: 10px 0; 
+            font-size: 11px; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            margin-top: 12px; 
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) { .vitrine { grid-template-columns: 1fr 1fr 1fr 1fr; } }
     </style>
 </head>
 <body>
 
+<div class="banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
 <header>SEPHORA | FRAN</header>
 
-<div class="container">
-    <img src="IMG_6237.webp" alt="Gloss Fran LipChilli" class="main-img">
+<h2 style="margin-top: 30px; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">Coleção Chilli</h2>
 
-    <div class="brand">Fran by Franciny Ehlke</div>
-    <h1 class="product-name">Gloss Labial LipChilli - Efeito Aumento Labial</h1>
+<div class="vitrine">
     
-    <div style="color: #000; font-size: 12px;">★★★★★ <span style="text-decoration: underline;">(2.540 avaliações)</span></div>
-
-    <div class="price">R$ 39,90</div>
-
-    <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20comprar%20o%20Gloss%20da%20Fran!" class="btn-buy">
-        🛒 Comprar pelo WhatsApp
-    </a>
-
-    <div class="footer-info">
-        <p>✨ <strong>Produto 100% Original</strong></p>
-        <p>O LipChilli contém Ácido Hialurônico e Vitamina E, garantindo lábios volumosos e hidratados na hora.</p>
+    <div class="produto-card">
+        <img src="IMG_6237.webp" alt="LipChilli Original">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss LipChilli Original</div>
+        <div class="price">R$ 39,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20LipChilli%20Original" class="btn-comprar">Comprar</a>
     </div>
+
+    <div class="produto-card">
+        <img src="IMG_6239.webp" alt="ChocoChilli">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss ChocoChilli</div>
+        <div class="price">R$ 44,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20ChocoChilli" class="btn-comprar">Comprar</a>
+    </div>
+
+    <div class="produto-card">
+        <img src="IMG_6240.jpeg" alt="PinkChilli">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss PinkChilli</div>
+        <div class="price">R$ 44,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20PinkChilli" class="btn-comprar">Comprar</a>
+    </div>
+
+    <div class="produto-card">
+        <img src="IMG_6241.jpeg" alt="Gloss Especial">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss Chilli Especial</div>
+        <div class="price">R$ 49,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Gloss%20Especial" class="btn-comprar">Comprar</a>
+    </div>
+
 </div>
+
+<p style="margin: 40px 0; font-size: 12px; color: #999;">© 2024 Sua Loja de Makes - Produto Original</p>
 
 </body>
 </html>
