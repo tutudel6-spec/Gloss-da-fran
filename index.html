@@ -15,13 +15,13 @@
         .nav-categories { display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 20px; justify-content: center; }
         .nav-categories div { color: #888; font-size: 11px; font-weight: bold; text-transform: uppercase; cursor: pointer; padding-bottom: 5px; }
         .nav-categories div.active { color: #000; border-bottom: 2px solid #000; }
-        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
+        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
         .produto-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
         .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; background: #f9f9f9; }
         .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 8px; font-weight: bold; }
         .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; }
         .price { font-size: 15px; font-weight: bold; }
-        .btn-comprar { background: #d63384; color: #fff; text-align: center; padding: 12px; font-size: 11px; font-weight: bold; border-radius: 2px; margin-top: 10px; text-decoration: none; text-transform: uppercase; }
+        .btn-comprar { background: #d63384; color: #fff; text-align: center; padding: 12px; font-size: 11px; font-weight: bold; border-radius: 2px; margin-top: 10px; text-decoration: none; text-transform: uppercase; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -33,15 +33,15 @@
     </nav>
 
     <div id="sec-gloss" class="vitrine">
-        <div class="produto-card"><img src="IMG_6237.webp"><div class="brand">Fran</div><div class="name">LipChilli Original</div><div class="price">R$ 39,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
-        <div class="produto-card"><img src="IMG_6239.webp"><div class="brand">Fran</div><div class="name">ChocoChilli</div><div class="price">R$ 44,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
-        <div class="produto-card"><img src="IMG_6240.jpeg"><div class="brand">Fran</div><div class="name">PinkChilli</div><div class="price">R$ 44,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
-        <div class="produto-card"><img src="IMG_6241.jpeg"><div class="brand">Fran</div><div class="name">Chilli Especial</div><div class="price">R$ 49,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6237.webp"><div class="brand">Fran</div><div class="name">LipChilli Original</div><div class="price">R$ 39,90</div><a href="pagamento.html?preco=39,90&nome=LipChilli%20Original" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6239.webp"><div class="brand">Fran</div><div class="name">ChocoChilli</div><div class="price">R$ 44,90</div><a href="pagamento.html?preco=44,90&nome=ChocoChilli" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6240.jpeg"><div class="brand">Fran</div><div class="name">PinkChilli</div><div class="price">R$ 44,90</div><a href="pagamento.html?preco=44,90&nome=PinkChilli" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6241.jpeg"><div class="brand">Fran</div><div class="name">Chilli Especial</div><div class="price">R$ 49,90</div><a href="pagamento.html?preco=49,90&nome=Chilli%20Especial" class="btn-comprar">Comprar</a></div>
     </div>
 
     <div id="sec-perfumes" class="vitrine" style="display: none;">
-        <div class="produto-card"><img src="IMG_6244.jpeg"><div class="brand">Luxury</div><div class="name">Fragrância 01</div><div class="price">R$ 670,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
-        <div class="produto-card"><img src="IMG_6245.jpeg"><div class="brand">Luxury</div><div class="name">Fragrância 02</div><div class="price">R$ 580,90</div><a href="pagamento.html" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6244.jpeg"><div class="brand">Luxury</div><div class="name">Fragrância 01</div><div class="price">R$ 630,90</div><a href="pagamento.html?preco=189,90&nome=Fragrância%2001" class="btn-comprar">Comprar</a></div>
+        <div class="produto-card"><img src="IMG_6245.jpeg"><div class="brand">Luxury</div><div class="name">Fragrância 02</div><div class="price">R$ 560,90</div><a href="pagamento.html?preco=199,90&nome=Fragrância%2002" class="btn-comprar">Comprar</a></div>
     </div>
 
     <script>
