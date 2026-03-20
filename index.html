@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sephora | Coleção Fran</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 100px; overflow-x: hidden; }
+        body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 100px; }
         .top-banner { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 10px; text-transform: uppercase; }
         header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; }
         .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; margin: auto; }
@@ -37,37 +37,4 @@
 <header>
     <div style="width: 22px;"></div>
     <div class="logo">SEPHORA</div>
-    <div class="cart-icon" onclick="window.location.href='pagamento.html'">🛍️ <span id="cart-count">0</span></div>
-</header>
-
-<nav class="nav-categories">
-    <div onclick="aba('gloss')" id="tab-gloss" class="active">Gloss</div>
-    <div onclick="aba('perfumes')" id="tab-perfumes">Perfumes</div>
-</nav>
-
-<div id="sec-gloss" class="vitrine">
-    <div class="produto-card">
-        <img src="IMG_6237.webp" onclick="verInfo('LipChilli Original', 'Aumenta os lábios.', '49.00', 'IMG_6237.webp')">
-        <div class="name">LipChilli Original</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('LipChilli Original', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'Edição limitada chocolate.', '49.00', 'IMG_6239.webp')">
-        <div class="name">ChocoChilli</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('ChocoChilli', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'O gloss rosa da Fran.', '49.00', 'IMG_6240.jpeg')">
-        <div class="name">PinkChilli</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('PinkChilli', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor e volume intenso.', '49.00', 'IMG_6241.jpeg')">
-        <div class="name">Chilli Especial</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('Chilli Especial', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6250.jpeg" onclick="verInfo('Gloss Glacê', 'Brilho espelhado.', '42.00', 'IMG_6250.jpeg')">
-        <div class="name">Gloss Glacê</div><div class="price">R$ 42,00</div>
-        <button class="btn-add" onclick="add('Gloss Glacê', 42.00)">Adicionar</button>
-    </div>
+    <div
