@@ -11,12 +11,12 @@
         body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 90px; }
         .top-banner { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
         header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; }
-        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; cursor: pointer; }
+        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; cursor: pointer; margin: auto; }
         .cart-icon { position: relative; cursor: pointer; font-size: 22px; }
         #cart-count { position: absolute; top: -5px; right: -10px; background: #d63384; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; }
         
-        .nav-categories { display: flex; overflow-x: auto; padding: 15px; border-bottom: 1px solid #eee; gap: 20px; justify-content: center; background: #fff; }
-        .nav-categories div { color: #888; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase; padding-bottom: 5px; }
+        .nav-categories { display: flex; overflow-x: auto; padding: 15px; border-bottom: 1px solid #eee; gap: 25px; justify-content: center; background: #fff; }
+        .nav-categories div { color: #888; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase; padding-bottom: 5px; transition: 0.3s; }
         .nav-categories div.active { color: #000; border-bottom: 2px solid #000; }
 
         .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
@@ -26,7 +26,7 @@
         .price { font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #d63384; }
         .btn-add { background: #000; color: #fff; padding: 10px; font-size: 10px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
         
-        /* Modal */
+        /* Modal Detalhes */
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
         .modal-content { background: #fff; padding: 25px; border-radius: 15px; max-width: 350px; width: 100%; position: relative; text-align: center; }
         .modal-img { width: 180px; border-radius: 10px; margin-bottom: 15px; }
@@ -39,8 +39,8 @@
 <div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
 
 <header>
-    <div style="font-size: 20px;">☰</div>
-    <div class="logo">SEPHORA</div>
+    <div style="font-size: 20px; visibility: hidden;">☰</div>
+    <div class="logo" onclick="window.location.reload()">SEPHORA</div>
     <div class="cart-icon" onclick="window.location.href='pagamento.html'">🛍️ <span id="cart-count">0</span></div>
 </header>
 
@@ -51,64 +51,19 @@
 
 <div id="sec-gloss" class="vitrine">
     <div class="produto-card">
-        <img src="IMG_6237.webp" onclick="verInfo('LipChilli Original', 'O clássico da Fran! Aumenta os lábios e dá um brilho incrível.', '39.90', 'IMG_6237.webp')">
+        <img src="IMG_6237.webp" onclick="verInfo('LipChilli Original', 'Aumenta os lábios e hidrata intensamente.', '39.90', 'IMG_6237.webp')">
         <div class="name">LipChilli Original</div><div class="price">R$ 39,90</div>
         <button class="btn-add" onclick="add('LipChilli Original', 39.90)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'Aroma delicioso de chocolate com o efeito Chilli que você ama.', '44.90', 'IMG_6239.webp')">
+        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'O efeito Chilli que você ama com aroma de chocolate.', '44.90', 'IMG_6239.webp')">
         <div class="name">ChocoChilli</div><div class="price">R$ 44,90</div>
         <button class="btn-add" onclick="add('ChocoChilli', 44.90)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'Tom rosado suave para um look romântico e volumoso.', '44.90', 'IMG_6240.jpeg')">
+        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'Volume e brilho em um tom rosa perfeito.', '44.90', 'IMG_6240.jpeg')">
         <div class="name">PinkChilli</div><div class="price">R$ 44,90</div>
         <button class="btn-add" onclick="add('PinkChilli', 44.90)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor intensa para quem não tem medo de brilhar.', '49.90', 'IMG_6241.jpeg')">
-        <div class="name">Chilli Especial</div><div class="price">R$ 49,90</div>
-        <button class="btn-add" onclick="add('Chilli Especial', 49.90)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6250.jpeg" onclick="verInfo('Gloss Glacê', 'Brilho espelhado que não gruda. Conforto total.', '42.90', 'IMG_6250.jpeg')">
-        <div class="name">Gloss Glacê</div><div class="price">R$ 42,90</div>
-        <button class="btn-add" onclick="add('Gloss Glacê', 42.90)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6251.jpeg" onclick="verInfo('Gloss Vini', 'Efeito vinil de alta cobertura. Labios impecáveis.', '42.90', 'IMG_6251.jpeg')">
-        <div class="name">Gloss Vini</div><div class="price">R$ 42,90</div>
-        <button class="btn-add" onclick="add('Gloss Vini', 42.90)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6252.webp" onclick="verInfo('Gloss Gold', 'Partículas de ouro para um brilho de estrela.', '46.90', 'IMG_6252.webp')">
-        <div class="name">Gloss Gold</div><div class="price">R$ 46,90</div>
-        <button class="btn-add" onclick="add('Gloss Gold', 46.90)">Adicionar</button>
-    </div>
-</div>
-
-<div id="sec-perfumes" class="vitrine" style="display: none;">
-    <div class="produto-card">
-        <img src="IMG_6244.jpeg" onclick="verInfo('Luxury Essence', 'Notas sofisticadas para mulheres decididas.', '189.90', 'IMG_6244.jpeg')">
-        <div class="name">Luxury Essence</div><div class="price">R$ 189,90</div>
-        <button class="btn-add" onclick="add('Luxury Essence', 189.90)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6245.jpeg" onclick="verInfo('Velvet Rose', 'O toque aveludado da rosa em uma fragrância única.', '199.90', 'IMG_6245.jpeg')">
-        <div class="name">Velvet Rose</div><div class="price">R$ 199,90</div>
-        <button class="btn-add" onclick="add('Velvet Rose', 199.90)">Adicionar</button>
-    </div>
-</div>
-
-<a href="pagamento.html" class="floating-cart" id="btn-flutuante">CONFERIR SACOLA (R$ <span id="total-fl">0</span>)</a>
-
-<div id="modal">
-    <div class="modal-content">
-        <span style="position:absolute; top:10px; right:15px; font-size:25px; cursor:pointer;" onclick="fecharModal()">&times;</span>
-        <img id="modal-img" class="modal-img">
-        <h2 id="modal-titulo" style="font-size:18px;"></h2>
-        <p id="modal-desc" style="color:#666; font-size:13px; margin:15px 0;"></p>
-        <div id="modal-preco" style="font-weight:bold; font-size:22px; color:#d63384; margin-bottom:15px;"></div>
-        <button class="btn-add" style="width:100%; padding:15px;" id="btn-modal-add">Adicionar à Sacola</button>
-    </div>
-</div>
+        <img src="IMG_62
