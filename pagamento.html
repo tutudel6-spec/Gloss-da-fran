@@ -1,48 +1,46 @@
 
 <!DOCTYPE html>
+
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Pagamento | PIX</title>
+    <title>Pagamento Seguro | PIX</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f4f4; text-align: center; padding: 20px; }
-        .checkout-card { background: white; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .pix-logo { width: 100px; margin-bottom: 20px; }
-        .valor { font-size: 24px; font-weight: bold; color: #2e7d32; margin: 10px 0; }
-        .chave-box { background: #eee; padding: 15px; border-radius: 8px; font-family: monospace; margin: 20px 0; word-break: break-all; border: 1px dashed #999; }
-        .btn-copiar { background: #000; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
-        .aviso { font-size: 13px; color: #666; margin-top: 20px; }
-        .btn-whatsapp { background: #25d366; color: white; display: block; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        body { font-family: sans-serif; text-align: center; padding: 20px; background: #f9f9f9; }
+        .card { background: #fff; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        .pix-logo { width: 80px; margin-bottom: 20px; }
+        .chave-box { background: #f0f0f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin: 20px 0; border: 1px dashed #bbb; font-weight: bold; color: #333; }
+        .btn-copiar { background: #000; color: #fff; padding: 15px; border: none; border-radius: 5px; width: 100%; cursor: pointer; font-weight: bold; text-transform: uppercase; }
+        .btn-zap { background: #25d366; color: #fff; display: block; padding: 15px; margin-top: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .aviso { font-size: 11px; color: #888; margin-top: 15px; line-height: 1.4; }
     </style>
 </head>
 <body>
-
-<div class="checkout-card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" class="pix-logo" alt="PIX">
-    <h2>Quase lá!</h2>
-    <p>Escaneie o QR Code ou copie a chave abaixo para pagar via PIX.</p>
-    
-    <div class="valor">Total: R$ 39,90</div>
-
-    <div class="chave-box" id="chave">5571981982742</div> <button class="btn-copiar" onclick="copiarChave()">Copiar Chave PIX</button>
-
-    <div class="aviso">
-        📌 <b>Importante:</b> Após o pagamento, você <b>precisa</b> enviar o comprovante no WhatsApp para liberarmos o seu pedido.
+    <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" class="pix-logo">
+        <h3>Finalize seu Pagamento</h3>
+        <p>Copie a <b>Chave Aleatória</b> abaixo:</p>
+        
+        <div class="chave-box" id="pix">a11b4306-789b-4608-8e21-4a09e6de87fb</div>
+        
+        <button class="btn-copiar" onclick="copiar()">Copiar Chave PIX</button>
+        
+        <div class="aviso">Após pagar, clique no botão abaixo para enviar o comprovante.</div>
+        
+        <a href="https://wa.me/5571981982742?text=Oi! Acabei de fazer o PIX da minha compra." class="btn-zap">Enviar Comprovante</a>
+        <br>
+        <a href="index.html" style="color: #999; text-decoration: none; font-size: 12px;">← Voltar para a loja</a>
     </div>
 
-    <a href="https://wa.me/5571981982742?text=Oi!%20Acabei%20de%20fazer%20o%20PIX,%20aqui%20está%20o%20comprovante!" class="btn-whatsapp">
-        Enviar Comprovante
-    </a>
-</div>
-
-<script>
-    function copiarChave() {
-        var text = document.getElementById("chave").innerText;
-        navigator.clipboard.writeText(text);
-        alert("Chave PIX copiada com sucesso!");
-    }
-</script>
-
+    <script>
+        function copiar() {
+            var text = document.getElementById("pix").innerText;
+            navigator.clipboard.writeText(text);
+            alert("Chave PIX copiada com sucesso!");
+        }
+    </script>
 </body>
 </html>
