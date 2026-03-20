@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,10 +13,10 @@
         .container { display: flex; max-width: 1000px; margin: 20px auto; gap: 40px; padding: 0 20px; }
         
         /* Galeria de Imagens */
-        .product-images { flex: 1.2; position: relative; }
-        .main-img { width: 100%; border-radius: 4px; border: 1px solid #f2f2f2; object-fit: contain; }
+        .product-images { flex: 1.2; }
+        .main-img { width: 100%; border-radius: 8px; border: 1px solid #f2f2f2; object-fit: contain; }
         .thumbnails { display: flex; gap: 10px; margin-top: 15px; justify-content: center; }
-        .thumb { width: 70px; height: 70px; border: 1px solid #eee; border-radius: 4px; object-fit: cover; cursor: pointer; }
+        .thumb { width: 70px; height: 70px; border: 1px solid #eee; border-radius: 4px; object-fit: cover; }
 
         /* Informações do Produto */
         .product-info { flex: 1; }
@@ -30,27 +29,26 @@
         .badge-shipping { background: #e8f5e9; color: #2e7d32; }
 
         .price-container { margin-bottom: 25px; border-top: 1px solid #eee; padding-top: 20px; }
-        .price { font-size: 28px; font-weight: 700; color: #000; }
+        .price { font-size: 32px; font-weight: 700; color: #000; }
         .installments { font-size: 14px; color: #666; margin-top: 4px; }
 
-        /* Botão de Compra Estilo Sephora / WhatsApp */
+        /* Botão Rosa Fran */
         .btn-buy { 
-            background: #000; color: #fff; width: 100%; padding: 16px; 
-            border: none; font-size: 15px; font-weight: 700; cursor: pointer; 
+            background: #d63384; color: #fff; width: 100%; padding: 18px; 
+            border: none; font-size: 16px; font-weight: 700; cursor: pointer; 
             text-decoration: none; display: inline-block; text-align: center;
-            border-radius: 2px; transition: 0.2s; margin-top: 10px;
+            border-radius: 5px; transition: 0.2s; margin-top: 10px;
             text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
         }
-        .btn-buy:hover { background: #333; }
+        .btn-buy:hover { background: #b82b71; transform: scale(1.02); }
 
         .description { margin-top: 35px; font-size: 14px; color: #333; border-top: 1px solid #eee; padding-top: 20px; }
         .description h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
 
-        /* Ajuste para Celular */
         @media (max-width: 768px) { 
             .container { flex-direction: column; margin-top: 10px; gap: 20px; }
-            .product-name { font-size: 20px; }
-            .thumb { width: 60px; height: 60px; }
+            .product-name { font-size: 22px; }
         }
     </style>
 </head>
@@ -60,46 +58,8 @@
 
 <div class="container">
     <div class="product-images">
-        <img src="https://i.imgur.com/K6V8YlP.jpg" alt="Gloss LipChilli Principal" class="main-img">
-        <div class="thumbnails">
-            <img src="https://i.imgur.com/K6V8YlP.jpg" class="thumb">
-            <img src="https://i.imgur.com/P0N7H5t.jpg" class="thumb">
-            <img src="https://i.imgur.com/n6t9qN5.jpg" class="thumb">
-        </div>
-    </div>
-
-    <div class="product-info">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <h1 class="product-name">Gloss Labial LipChilli - Efeito Aumento Labial (Original)</h1>
+ 
         
-        <div class="rating">
-            ★★★★★ <span>2.540 Avaliações</span>
-        </div>
-
-        <div class="badges">
-            <span class="badge badge-shipping">🚚 Frete Grátis</span>
-            <span class="badge">✨ 100% Original</span>
-        </div>
         
-        <div class="price-container">
-            <div class="price">R$ 54,90</div>
-            <div class="installments">ou 3x de R$ 18,30 sem juros</div>
-        </div>
-
-        <p style="font-size: 14px; margin-bottom: 20px;"><strong>Cor:</strong> Original (Incolor)</p>
-
-        <a href="https://wa.me/5571981982742?text=Olá!%20Vi%20o%20Gloss%20da%20Fran%20no%20seu%20site%20e%20gostaria%20de%20encomendar!" class="btn-buy">
-            🛒 Comprar pelo WhatsApp
-        </a>
-
-        <div class="description">
-            <h3>Descrição do Produto</h3>
-            <p>O <strong>LipChilli</strong> é o produto mais amado da linha Fran. Com uma fórmula inovadora contendo Ácido Hialurônico e Vitamina E, ele proporciona um aumento labial imediato e uma hidratação profunda. Sinta o leve frescor da pimenta e veja seus lábios transformados com brilho intenso.</p>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>     
-
+           
         
