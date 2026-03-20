@@ -6,120 +6,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sephora | Coleção Fran</title>
+    <title>Pagamento Seguro | PIX</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; color: #1a1a1a; }
-        .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #f9f9f9; text-align: center; padding: 20px; color: #1a1a1a; }
+        .checkout-card { background: white; padding: 30px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .pix-logo { width: 80px; margin-bottom: 20px; }
+        h2 { font-size: 20px; margin-bottom: 10px; }
+        p { font-size: 14px; color: #666; line-height: 1.5; }
         
-        header { 
-            display: flex; align-items: center; justify-content: space-between; 
-            padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 1000;
-        }
-        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
-
-        .search-container { padding: 10px 20px; }
-        .search-bar { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; background: #f5f5f5; font-size: 14px; }
-
-        /* Abas */
-        .nav-categories { display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 25px; background: #fff; }
-        .nav-categories div { 
-            color: #888; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
-            padding-bottom: 5px; border-bottom: 2px solid transparent;
-        }
-        .nav-categories div.active-cat { color: #000; border-bottom: 2px solid #000; }
-
-        /* Vitrine */
-        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
-        .produto-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
-        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; background: #f9f9f9; }
+        .chave-container { background: #f0f0f0; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px dashed #bbb; position: relative; }
+        .chave-texto { font-size: 13px; font-family: monospace; word-break: break-all; color: #333; font-weight: bold; }
         
-        .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 8px; font-weight: bold; }
-        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; line-height: 1.3; }
-        .price { font-size: 15px; font-weight: 800; color: #000; }
-        
-        .btn-comprar { 
-            background: #d63384; color: #fff; text-align: center; padding: 12px 0; 
-            font-size: 11px; font-weight: bold; border-radius: 2px; margin-top: 10px; 
-            text-transform: uppercase; text-decoration: none;
-        }
+        .btn-copiar { background: #000; color: #fff; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
+        .btn-copiar:active { background: #333; }
 
-        @media (min-width: 768px) { .vitrine { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+        .instrucoes { font-size: 12px; color: #888; margin-top: 25px; text-align: left; background: #fff8f8; padding: 10px; border-left: 3px solid #d63384; }
+        
+        .btn-whatsapp { background: #25d366; color: white; display: block; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; font-size: 14px; }
+        .btn-voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 13px; }
     </style>
 </head>
 <body>
 
-<div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
-
-<header>
-    <div style="font-size: 22px;">☰</div>
-    <div class="logo">SEPHORA</div>
-    <div class="header-icons">👤 🛍️</div>
-</header>
-
-<div class="search-container">
-    <input type="text" class="search-bar" placeholder="Pesquisar na Sephora">
-</div>
-
-<nav class="nav-categories">
-    <div onclick="aba('gloss')" id="tab-gloss" class="active-cat">GLOSS</div>
-    <div onclick="aba('perfumes')" id="tab-perfumes">PERFUMES</div>
-    <div>SKINCARE</div>
-    <div>CABELOS</div>
-</nav>
-
-<div id="section-gloss" class="vitrine">
-    <div class="produto-card">
-        <img src="IMG_6237.webp">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss LipChilli Original</div>
-        <div class="price">R$ 39,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6239.webp">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss ChocoChilli</div>
-        <div class="price">R$ 44,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6240.jpeg">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss PinkChilli</div>
-        <div class="price">R$ 44,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6241.jpeg">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss Chilli Especial</div>
-        <div class="price">R$ 49,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-</div>
-
-<div id="section-perfumes" class="vitrine" style="display: none;">
-    <div class="produto-card">
-        <img src="IMG_6244.jpeg">
-        <div class="brand">The Ordinary</div>
-        <div class="name">Perfume Luxury Essence</div>
-        <div class="price">R$ 700,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6245.jpeg">
-        <div class="brand">The Ordinary</div>
-        <div class="name">Perfume Velvet Rose</div>
-        <div class="price">R$ 550,90</div>
-        <a href="pagamento.html" class="btn-comprar">Comprar</a>
-    </div>
-</div>
-
-<script>
-    function aba(categoria) {
-        document.getElementById('section-gloss').style.display = 'none';
-        document.getElementById('section-perfumes').style.display = 'none';
-        document.getElementById('tab-gloss').classList.remove('active-cat');
-        document.getElementById('tab-perfumes').classList.remove('active-cat');
-        
-        if(categoria === '
+<div class="checkout-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" class="pix-logo" alt="PIX">
+    <h2>Finalize seu pedido</h2>
+    <p>Copie a chave aleatória abaixo e pague no app do seu banco.</p>
+    
+    <div class="chave-container">
+        <div class="chave-texto" id="chavePix">a11b4306-789b-
