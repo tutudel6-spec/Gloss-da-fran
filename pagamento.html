@@ -1,7 +1,3 @@
-
-<!DOCTYPE html>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,78 +19,52 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="header-sacola">
-        <h3>Minha Sacola</h3>
-        <button class="btn-limpar" onclick="limpar()">Limpar Tudo</button>
+    <div class="container">
+        <div class="header-sacola">
+            <h3>Minha Sacola</h3>
+            <button class="btn-limpar" onclick="limpar()">Limpar Tudo</button>
+        </div>
+        <div id="lista"></div>
+        <div class="total">Total: R$ <span id="total-val">0.00</span></div>
+        <h3 style="margin-top: 30px;">Dados para Entrega</h3>
+        <input type="text" id="nome" placeholder="Seu Nome">
+        <input type="text" id="rua" placeholder="Rua e Número">
+        <input type="text" id="bairro" placeholder="Bairro e Cidade">
+        <input type="text" id="cep" placeholder="CEP">
+        <button class="btn-gerar" onclick="finalizar()">Ir para o Pagamento</button>
+        <div id="pix-area">
+            <p><strong>Pagamento via PIX</strong></p>
+            <span class="chave" id="chave">a11b4306-789b-4608-8e21-4a09e6de87fb</span>
+            <button onclick="copiar()" style="width:100%; padding:8px; cursor:pointer;">Copiar Chave</button>
+            <a id="link-zap" href="#" class="btn-whats">Finalizar Pedido no WhatsApp</a>
+        </div>
     </div>
-
-    <div id="lista"></div>
-    <div class="total">Total: R$ <span id="total-val">0.00</span></div>
-
-    <h3 style="margin-top: 30px;">Dados para Entrega</h3>
-    <input type="text" id="nome" placeholder="Seu Nome">
-    <input type="text" id="rua" placeholder="Rua e Número">
-    <input type="text" id="bairro" placeholder="Bairro e Cidade">
-    <input type="text" id="cep" placeholder="CEP">
-
-    <button class="btn-gerar" onclick="finalizar()">Ir para o Pagamento</button>
-
-    <div id="pix-area">
-        <p><strong>Pagamento via PIX</strong></p>
-        <span class="chave" id="chave">a11b4306-789b-4608-8e21-4a09e6de87fb</span>
-        <button onclick="copiar()" style="width:100%; padding:8px; cursor:pointer;">Copiar Chave</button>
-        <a id="link-zap" href="#" class="btn-whats">Finalizar Pedido no WhatsApp</a>
-    </div>
-</div>
-
-<script>
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    let lista = document.getElementById('lista');
-    let total = 0;
-
-    function carregar() {
-        lista.innerHTML = "";
-        total = 0;
-        if(carrinho.length === 0) {
-            lista.innerHTML = "<p style='color:#999'>Sacola vazia</p>";
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        let lista = document.getElementById('lista');
+        let total = 0;
+        function carregar() {
+            lista.innerHTML = ""; total = 0;
+            if(carrinho.length === 0) { lista.innerHTML = "<p style='color:#999'>Sacola vazia</p>"; }
+            carrinho.forEach(item => {
+                lista.innerHTML += `<div class="item"><span>${item.nome}</span> <b>R$ ${item.preco.toFixed(2)}</b></div>`;
+                total += item.preco;
+            });
+            document.getElementById('total-val').innerText = total.toFixed(2);
         }
-        carrinho.forEach(item => {
-            lista.innerHTML += `<div class="item"><span>${item.nome}</span> <b>R$ ${item.preco.toFixed(2)}</b></div>`;
-            total += item.preco;
-        });
-        document.getElementById('total-val').innerText = total.toFixed(2);
-    }
-
-    function limpar() {
-        localStorage.removeItem('carrinho');
-        carrinho = [];
+        function limpar() { localStorage.removeItem('carrinho'); carrinho = []; carregar(); }
+        function finalizar() {
+            if(carrinho.length === 0) return alert("Sua sacola está vazia!");
+            const n = document.getElementById('nome').value;
+            if(!n) return alert("Preencha seus dados de entrega!");
+            document.getElementById('pix-area').style.display = 'block';
+            let prodStr = carrinho.map(i => i.nome).join(", ");
+            let end = `${document.getElementById('rua').value}, ${document.getElementById('bairro').value} - CEP: ${document.getElementById('cep').value}`;
+            let msg = `✨ *PEDIDO SEPHORA* ✨\n\n*Cliente:* ${n}\n*Produtos:* ${prodStr}\n*Valor Total:* R$ ${total.toFixed(2)}\n\n📍 *ENTREGA:* ${end}`;
+            document.getElementById('link-zap').href = "https://wa.me/5571981982742?text=" + encodeURIComponent(msg);
+        }
+        function copiar() { navigator.clipboard.writeText(document.getElementById('chave').innerText); alert("Chave copiada!"); }
         carregar();
-    }
-
-    function finalizar() {
-        if(carrinho.length === 0) return alert("Sua sacola está vazia!");
-        const nome = document.getElementById('nome').value;
-        if(!nome) return alert("Preencha seus dados de entrega!");
-
-        document.getElementById('pix-area').style.display = 'block';
-
-        let produtosStr = carrinho.map(i => i.nome).join(", ");
-        let endereco = `${document.getElementById('rua').value}, ${document.getElementById('bairro').value} - CEP: ${document.getElementById('cep').value}`;
-        
-        let msg = `✨ *PEDIDO SEPHORA* ✨\n\n*Cliente:* ${nome}\n*Produtos:* ${produtosStr}\n*Valor Total:* R$ ${total.toFixed(2)}\n\n📍 *ENTREGA:* ${endereco}`;
-        
-        document.getElementById('link-zap').href = "https://wa.me/5571981982742?text=" + encodeURIComponent(msg);
-    }
-
-    function copiar() {
-        navigator.clipboard.writeText(document.getElementById('chave').innerText);
-        alert("Chave copiada!");
-    }
-
-    carregar();
-</script>
-
+    </script>
 </body>
 </html>
