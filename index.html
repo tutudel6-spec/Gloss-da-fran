@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-      <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -11,8 +11,8 @@
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; color: #1a1a1a; background: #fff; line-height: 1.5; }
         header { border-bottom: 1px solid #e5e5e5; padding: 15px; text-align: center; font-weight: 700; letter-spacing: 3px; font-size: 1.1rem; text-transform: uppercase; }
         .container { display: flex; max-width: 1000px; margin: 20px auto; gap: 40px; padding: 0 20px; }
-        .product-images { flex: 1.2; }
-        .main-img { width: 100%; border-radius: 8px; border: 1px solid #f2f2f2; }
+        .product-images { flex: 1.2; text-align: center; }
+        .main-img { width: 100%; max-width: 500px; border-radius: 8px; border: 1px solid #f2f2f2; }
         .thumbnails { display: flex; gap: 10px; margin-top: 15px; justify-content: center; }
         .thumb { width: 70px; height: 70px; border: 1px solid #eee; border-radius: 4px; object-fit: cover; }
         .product-info { flex: 1; }
@@ -24,6 +24,7 @@
         .badge-shipping { background: #e8f5e9; color: #2e7d32; }
         .price-container { margin-bottom: 25px; border-top: 1px solid #eee; padding-top: 20px; }
         .price { font-size: 32px; font-weight: 700; color: #000; }
+        .installments { font-size: 14px; color: #666; }
         .btn-buy { 
             background: #d63384; color: #fff; width: 100%; padding: 18px; 
             border: none; font-size: 16px; font-weight: 700; cursor: pointer; 
@@ -39,11 +40,10 @@
 
 <div class="container">
     <div class="product-images">
-        <img src="https://m.media-amazon.com/images/I/41-iL98NfFL._AC_SY606_.jpg" alt="Gloss LipChilli" class="main-img">
+        <img src="https://static.paulaschoice.com/skin-care-products/lip-care/images/lip-booster-hyaluronic-acid-v1.jpg" alt="Gloss LipChilli" class="main-img" id="mainImg">
         <div class="thumbnails">
-            <img src="https://m.media-amazon.com/images/I/41-iL98NfFL._AC_SY606_.jpg" class="thumb">
-            <img src="https://m.media-amazon.com/images/I/510HnI2n8PL._AC_SY606_.jpg" class="thumb">
-            <img src="https://m.media-amazon.com/images/I/5160S-YI5+L._AC_SY606_.jpg" class="thumb">
+            <img src="https://images.tcdn.com.br/img/editor/up/1118335/lipchili_fran.jpg" class="thumb" style="border: 2px solid #d63384;">
+            <img src="https://images.tcdn.com.br/img/editor/up/1118335/fran_gloss_2.jpg" class="thumb">
         </div>
     </div>
 
@@ -57,13 +57,19 @@
         </div>
         <div class="price-container">
             <div class="price">R$ 39,90</div>
-            <div class="installments">ou 3x de R$ 18,30 sem juros</div>
+            <div class="installments">ou em até 2x sem juros</div>
         </div>
-        <a href="https://wa.me/5571981982742?text=Olá!%20Vi%20o%20Gloss%20da%20Fran%20no%20seu%20site!" class="btn-buy">
+
+        <a href="https://wa.me/5571981982742?text=Oi!%20Vi%20o%20Gloss%20da%20Fran%20no%20seu%20site%20e%20quero%20um!" class="btn-buy">
             🛒 Comprar pelo WhatsApp
         </a>
+
+        <div class="description">
+            <h3>Sobre o Produto</h3>
+            <p>O <strong>LipChilli</strong> é o queridinho da Fran. Com Ácido Hialurônico e Vitamina E, ele aumenta os lábios na hora e hidrata o dia todo.</p>
+        </div>
     </div>
 </div>
 
 </body>
-</html>
+</html>    
