@@ -1,0 +1,72 @@
+# Gloss-da-fran
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Gloss e Lápis Labial - Fran by Franciny Ehlke</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; color: #333; }
+        header { border-bottom: 1px solid #eee; padding: 20px; text-align: center; font-weight: bold; letter-spacing: 2px; }
+        
+        .container { display: flex; max-width: 1100px; margin: 40px auto; gap: 50px; padding: 0 20px; }
+        
+        /* Lado Esquerdo: Imagens */
+        .product-images { flex: 1.5; }
+        .main-img { width: 100%; border: 1px solid #f5f5f5; border-radius: 4px; }
+        .thumbnails { display: flex; gap: 10px; margin-top: 15px; }
+        .thumb { width: 70px; height: 70px; border: 1px solid #ddd; cursor: pointer; }
+
+        /* Lado Direito: Info de Compra */
+        .product-info { flex: 1; }
+        .brand { font-size: 14px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; }
+        .product-name { font-size: 24px; font-weight: 300; margin-bottom: 10px; line-height: 1.2; }
+        .rating { color: #FFB400; font-size: 18px; margin-bottom: 20px; }
+        .price { font-size: 22px; font-weight: bold; margin-bottom: 5px; }
+        .installments { font-size: 14px; color: #666; margin-bottom: 30px; }
+
+        .btn-buy { 
+            background: #000; color: #fff; width: 100%; padding: 15px; 
+            border: none; font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-buy:hover { background: #333; }
+
+        .description-box { margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+        
+        @media (max-width: 768px) { .container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+<header>SEPHORA CLONE - FRAN BY FRANCINY EHLKE</header>
+
+<div class="container">
+    <div class="product-images">
+        <img src="https://via.placeholder.com/600x600?text=Gloss+Fran+Principal" alt="Gloss" class="main-img">
+        <div class="thumbnails">
+            <img src="https://via.placeholder.com/70" class="thumb">
+            <img src="https://via.placeholder.com/70" class="thumb">
+            <img src="https://via.placeholder.com/70" class="thumb">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <div class="brand">FRAN BY FRANCINY EHLKE</div>
+        <h1 class="product-name">Kit Gloss Lipchilli & Lápis Labial LoveChilli</h1>
+        <div class="rating">★★★★★ <span style="color: #666; font-size: 12px;">(1.234 avaliações)</span></div>
+        
+        <div class="price">R$ 149,90</div>
+        <div class="installments">ou 10x de R$ 14,99</div>
+
+        <p><strong>Cor:</strong> Nude Clássico</p>
+        <button class="btn-buy">ADICIONAR À SACOLA</button>
+
+        <div class="description-box">
+            <h3>O que é?</h3>
+            <p>O kit perfeito para lábios volumosos. O LipChilli traz o efeito pump imediato enquanto o lápis define o contorno com alta pigmentação.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
