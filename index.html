@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sephora | Coleção Completa</title>
+    <title>Sephora | Coleção Fran</title>
     <style>
         body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 100px; }
         .top-banner { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
@@ -62,4 +63,98 @@
         <button class="btn-add" onclick="add('PinkChilli', 49.00)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor intensa.', '49.00', 'IMG_6241
+        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor intensa.', '49.00', 'IMG_6241.jpeg')">
+        <div class="name">Chilli Especial</div><div class="price">R$ 49,00</div>
+        <button class="btn-add" onclick="add('Chilli Especial', 49.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6250.jpeg" onclick="verInfo('Gloss Glacê', 'Brilho espelhado.', '42.00', 'IMG_6250.jpeg')">
+        <div class="name">Gloss Glacê</div><div class="price">R$ 42,00</div>
+        <button class="btn-add" onclick="add('Gloss Glacê', 42.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6251.jpeg" onclick="verInfo('Gloss Vini', 'Efeito verniz.', '42.00', 'IMG_6251.jpeg')">
+        <div class="name">Gloss Vini</div><div class="price">R$ 42,00</div>
+        <button class="btn-add" onclick="add('Gloss Vini', 42.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6252.webp" onclick="verInfo('Gloss Gold', 'Partículas douradas.', '46.00', 'IMG_6252.webp')">
+        <div class="name">Gloss Gold</div><div class="price">R$ 46,00</div>
+        <button class="btn-add" onclick="add('Gloss Gold', 46.00)">Adicionar</button>
+    </div>
+</div>
+
+<div id="sec-perfumes" class="vitrine" style="display: none;">
+    <div class="produto-card">
+        <img src="IMG_6244.jpeg" onclick="verInfo('Luxury Essence', 'Floral amadeirado.', '199.00', 'IMG_6244.jpeg')">
+        <div class="name">Luxury Essence</div><div class="price">R$ 199,00</div>
+        <button class="btn-add" onclick="add('Luxury Essence', 199.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6245.jpeg" onclick="verInfo('Velvet Rose', 'Elegante e doce.', '199.00', 'IMG_6245.jpeg')">
+        <div class="name">Velvet Rose</div><div class="price">R$ 199,00</div>
+        <button class="btn-add" onclick="add('Velvet Rose', 199.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6253.png" onclick="verInfo('Midnight Dream', 'Noturno sedutor.', '210.00', 'IMG_6253.png')">
+        <div class="name">Midnight Dream</div><div class="price">R$ 210,00</div>
+        <button class="btn-add" onclick="add('Midnight Dream', 210.00)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6254.jpeg" onclick="verInfo('Pure Summer', 'Refrescante.', '175.00', 'IMG_6254.jpeg')">
+        <div class="name">Pure Summer</div><div class="price">R$ 175,00</div>
+        <button class="btn-add" onclick="add('Pure Summer', 175.00)">Adicionar</button>
+    </div>
+</div>
+
+<a href="pagamento.html" class="floating-cart" id="btn-flutuante">VER SACOLA (R$ <span id="total-fl">0</span>)</a>
+
+<div id="modal">
+    <div class="modal-content">
+        <span style="position:absolute; top:10px; right:15px; font-size:25px; cursor:pointer;" onclick="fecharModal()">&times;</span>
+        <img id="modal-img" class="modal-img">
+        <h2 id="modal-titulo" style="font-size:18px;"></h2>
+        <p id="modal-desc" style="color:#666; font-size:13px; margin:15px 0;"></p>
+        <div id="modal-preco" style="font-weight:bold; font-size:22px; color:#d63384; margin-bottom:15px;"></div>
+        <button class="btn-add" style="width:100%; padding:15px;" id="btn-modal-add">Adicionar</button>
+    </div>
+</div>
+
+<script>
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    function add(nome, preco) {
+        carrinho.push({nome, preco});
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarCart();
+        fecharModal();
+    }
+    function atualizarCart() {
+        document.getElementById('cart-count').innerText = carrinho.length;
+        if(carrinho.length > 0) {
+            document.getElementById('btn-flutuante').style.display = 'block';
+            let total = carrinho.reduce((sum, item) => sum + item.preco, 0);
+            document.getElementById('total-fl').innerText = total.toFixed(2);
+        }
+    }
+    function verInfo(nome, desc, preco, img) {
+        document.getElementById('modal-titulo').innerText = nome;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-preco').innerText = "R$ " + preco;
+        document.getElementById('modal-img').src = img;
+        document.getElementById('btn-modal-add').onclick = function() { add(nome, parseFloat(preco)); };
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function fecharModal() { document.getElementById('modal').style.display = 'none'; }
+    function aba(cat) {
+        document.getElementById('sec-gloss').style.display = (cat === 'gloss') ? 'grid' : 'none';
+        document.getElementById('sec-perfumes').style.display = (cat === 'perfumes') ? 'grid' : 'none';
+        document.getElementById('tab-gloss').className = (cat === 'gloss' ? 'active' : '');
+        document.getElementById('tab-perfumes').className = (cat === 'perfumes' ? 'active' : '');
+    }
+    window.onload = function() {
+        atualizarCart();
+        aba('gloss'); // Garante que começa na aba de Gloss
+    };
+</script>
+</body>
+</html>
