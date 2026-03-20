@@ -7,73 +7,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Pedido</title>
+    <title>Minha Sacola | Pagamento</title>
     <style>
-        body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
-        .container { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h3 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .item-carrinho { display: flex; justify-content: space-between; font-size: 14px; margin: 10px 0; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
-        .total { font-size: 20px; font-weight: bold; text-align: right; margin-top: 20px; color: #d63384; }
-        
-        /* Formulário */
-        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
-        .btn-pix { background: #000; color: #fff; width: 100%; padding: 15px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 20px; }
-        
-        #pix-area { display: none; text-align: center; margin-top: 20px; background: #f0fdf4; padding: 20px; border-radius: 8px; border: 1px dashed #22c55e; }
-        .chave { font-family: monospace; font-weight: bold; background: #fff; padding: 10px; display: block; margin: 10px 0; word-break: break-all; }
-        .btn-whats { background: #25d366; color: #fff; display: block; padding: 15px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { max-width: 450px; margin: auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .header-sacola { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; margin-bottom: 15px; }
+        .item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+        .btn-limpar { color: #d63384; border: none; background: none; font-size: 11px; cursor: pointer; text-decoration: underline; font-weight: bold; }
+        .total { font-size: 22px; font-weight: bold; text-align: right; margin: 20px 0; color: #000; }
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        .btn-gerar { background: #d63384; color: #fff; width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        #pix-area { display: none; text-align: center; background: #f0fdf4; padding: 20px; border-radius: 10px; border: 1px dashed #22c55e; margin-top: 20px; }
+        .chave { font-family: monospace; font-weight: bold; background: #fff; padding: 10px; display: block; margin: 10px 0; word-break: break-all; font-size: 12px; }
+        .btn-whats { background: #25d366; color: #fff; display: block; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; font-size: 14px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" style="text-decoration: none; color: #666; font-size: 12px;">← Continuar comprando</a>
-    <h3>Sua Sacola</h3>
-    <div id="lista-itens"></div>
-    <div class="total">Total: R$ <span id="valor-total">0.00</span></div>
+    <div class="header-sacola">
+        <h3>Minha Sacola</h3>
+        <button class="btn-limpar" onclick="limpar()">Limpar Tudo</button>
+    </div>
 
-    <h3>Dados de Entrega</h3>
-    <input type="text" id="nome" placeholder="Nome Completo">
-    <input type="text" id="endereco" placeholder="Endereço e Número">
-    <input type="text" id="cidade" placeholder="Cidade / Estado">
+    <div id="lista"></div>
+    <div class="total">Total: R$ <span id="total-val">0.00</span></div>
+
+    <h3 style="margin-top: 30px;">Dados para Entrega</h3>
+    <input type="text" id="nome" placeholder="Seu Nome">
+    <input type="text" id="rua" placeholder="Rua e Número">
+    <input type="text" id="bairro" placeholder="Bairro e Cidade">
     <input type="text" id="cep" placeholder="CEP">
 
-    <button class="btn-pix" onclick="mostrarPix()">Gerar Pagamento PIX</button>
+    <button class="btn-gerar" onclick="finalizar()">Ir para o Pagamento</button>
 
     <div id="pix-area">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" width="60">
-        <p>Copie a chave aleatória abaixo:</p>
+        <p><strong>Pagamento via PIX</strong></p>
         <span class="chave" id="chave">a11b4306-789b-4608-8e21-4a09e6de87fb</span>
-        <button style="width:100%; padding:8px; cursor:pointer;" onclick="copiar()">Copiar Chave</button>
-        
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">Pague no banco e clique abaixo para finalizar:</p>
-        <a id="link-zap" href="#" class="btn-whats">Enviar Pedido no WhatsApp</a>
+        <button onclick="copiar()" style="width:100%; padding:8px; cursor:pointer;">Copiar Chave</button>
+        <a id="link-zap" href="#" class="btn-whats">Finalizar Pedido no WhatsApp</a>
     </div>
 </div>
 
 <script>
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    let lista = document.getElementById('lista-itens');
+    let lista = document.getElementById('lista');
     let total = 0;
 
-    carrinho.forEach(item => {
-        lista.innerHTML += `<div class="item-carrinho"><span>${item.nome}</span> <b>R$ ${item.preco.toFixed(2)}</b></div>`;
-        total += item.preco;
-    });
-    document.getElementById('valor-total').innerText = total.toFixed(2);
+    function carregar() {
+        lista.innerHTML = "";
+        total = 0;
+        if(carrinho.length === 0) {
+            lista.innerHTML = "<p style='color:#999'>Sacola vazia</p>";
+        }
+        carrinho.forEach(item => {
+            lista.innerHTML += `<div class="item"><span>${item.nome}</span> <b>R$ ${item.preco.toFixed(2)}</b></div>`;
+            total += item.preco;
+        });
+        document.getElementById('total-val').innerText = total.toFixed(2);
+    }
 
-    function mostrarPix() {
+    function limpar() {
+        localStorage.removeItem('carrinho');
+        carrinho = [];
+        carregar();
+    }
+
+    function finalizar() {
+        if(carrinho.length === 0) return alert("Sua sacola está vazia!");
         const nome = document.getElementById('nome').value;
-        if(!nome) return alert("Por favor, preencha seus dados de entrega!");
-        
+        if(!nome) return alert("Preencha seus dados de entrega!");
+
         document.getElementById('pix-area').style.display = 'block';
+
+        let produtosStr = carrinho.map(i => i.nome).join(", ");
+        let endereco = `${document.getElementById('rua').value}, ${document.getElementById('bairro').value} - CEP: ${document.getElementById('cep').value}`;
         
-        // Preparar mensagem do zap
-        let itensTexto = carrinho.map(i => i.nome).join(", ");
-        let endereco = document.getElementById('endereco').value;
-        let cidade = document.getElementById('cidade').value;
-        
-        let msg = `🛍️ *NOVO PEDIDO*\n\n*Produtos:* ${itensTexto}\n*Total:* R$ ${total.toFixed(2)}\n\n*DADOS DE ENTREGA:*\n*Nome:* ${nome}\n*End:* ${endereco}\n*Cidade:* ${cidade}`;
+        let msg = `✨ *PEDIDO SEPHORA* ✨\n\n*Cliente:* ${nome}\n*Produtos:* ${produtosStr}\n*Valor Total:* R$ ${total.toFixed(2)}\n\n📍 *ENTREGA:* ${endereco}`;
         
         document.getElementById('link-zap').href = "https://wa.me/5571981982742?text=" + encodeURIComponent(msg);
     }
@@ -82,6 +92,8 @@
         navigator.clipboard.writeText(document.getElementById('chave').innerText);
         alert("Chave copiada!");
     }
+
+    carregar();
 </script>
 
 </body>
