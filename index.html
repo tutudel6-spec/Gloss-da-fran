@@ -6,14 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sephora | Fran Collection</title>
+    <title>Sephora | Coleção Fran</title>
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
         
-        /* Banner Preto no Topo */
+        /* Banner Preto */
         .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Cabeçalho Sephora */
+        /* Header Sephora */
         header { 
             display: flex; 
             align-items: center; 
@@ -25,11 +25,10 @@
             background: white;
             z-index: 1000;
         }
-        .menu-icon { font-size: 22px; cursor: pointer; }
         .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
         .header-icons { display: flex; gap: 15px; font-size: 18px; }
 
-        /* Abas de Categorias (Scroll lateral igual ao print) */
+        /* Menu de Categorias */
         .nav-categories { 
             display: flex; 
             overflow-x: auto; 
@@ -50,7 +49,11 @@
         }
         .active-cat { border-bottom: 2px solid #000; padding-bottom: 5px; }
 
-        /* Vitrine de Produtos */
+        /* Títulos das Secções */
+        h2 { padding: 25px 20px 5px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; border-top: 8px solid #f9f9f9; margin-top: 0; }
+        h2.first { border-top: none; }
+
+        /* Vitrine */
         .vitrine { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -65,7 +68,6 @@
             color: inherit;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .produto-card img { 
@@ -76,8 +78,7 @@
             background: #f9f9f9;
         }
         
-        /* Selo de Lançamento Preto */
-        .badge-lancamento { 
+        .badge { 
             background: #000; color: #fff; font-size: 9px; 
             padding: 4px 10px; width: fit-content; 
             margin-top: 10px; text-transform: uppercase; 
@@ -88,7 +89,6 @@
         .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; line-height: 1.3; }
         .price { font-size: 15px; font-weight: 800; color: #000; margin-top: 2px; }
         
-        /* Botão de Compra */
         .btn-comprar { 
             background: #d63384; color: #fff; text-align: center; 
             padding: 12px 0; font-size: 11px; font-weight: bold; 
@@ -101,29 +101,26 @@
 </head>
 <body>
 
-<div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
+<div class="top-banner">✨ PORTES GRÁTIS EM COMPRAS ACIMA DE R$ 150 ✨</div>
 
 <header>
-    <div class="menu-icon">☰</div>
+    <div style="font-size: 22px;">☰</div>
     <div class="logo">SEPHORA</div>
     <div class="header-icons">🔍 👤 🛍️</div>
 </header>
 
 <nav class="nav-categories">
-    <a href="#" class="active-cat">MAQUIAGEM</a>
-    <a href="#">PERFUMES</a>
+    <a href="#maquiagem" class="active-cat">MAQUIAGEM</a>
+    <a href="#perfumes">PERFUMES</a>
     <a href="#">SKINCARE</a>
     <a href="#">CABELOS</a>
-    <a href="#">CORPO</a>
-    <a href="#">OUTROS</a>
 </nav>
 
-<h2 style="padding: 25px 20px 5px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800;">Coleção Fran Chilli</h2>
-
+<h2 id="maquiagem" class="first">Maquilhagem: Coleção Chilli</h2>
 <div class="vitrine">
     <div class="produto-card">
         <img src="IMG_6237.webp">
-        <div class="badge-lancamento">LANÇAMENTO</div>
+        <div class="badge">MAIS VENDIDO</div>
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss LipChilli Original</div>
         <div class="price">R$ 39,90</div>
@@ -137,27 +134,22 @@
         <div class="price">R$ 44,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20ChocoChilli" class="btn-comprar">Comprar</a>
     </div>
-
-    <div class="produto-card">
-        <img src="IMG_6240.jpeg">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss PinkChilli</div>
-        <div class="price">R$ 44,90</div>
-        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20PinkChilli" class="btn-comprar">Comprar</a>
-    </div>
-
-    <div class="produto-card">
-        <img src="IMG_6241.jpeg">
-        <div class="brand">Fran by Franciny Ehlke</div>
-        <div class="name">Gloss Chilli Especial</div>
-        <div class="price">R$ 49,90</div>
-        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Gloss%20Especial" class="btn-comprar">Comprar</a>
-    </div>
 </div>
 
-<footer style="margin-top: 50px; padding: 20px; background: #f9f9f9; text-align: center; font-size: 10px; color: #999; letter-spacing: 1px;">
-    © 2026 SEPHORA | FRAN - TODOS OS DIREITOS RESERVADOS
-</footer>
+<h2 id="perfumes">Perfumes: Fragrâncias</h2>
+<div class="vitrine">
+    <div class="produto-card">
+        <img src="IMG_6244.jpeg">
+        <div class="badge">LANÇAMENTO</div>
+        <div class="brand">The Ordinary / Fragrance</div>
+        <div class="name">Perfume Luxury Essence</div>
+        <div class="price">R$ 189,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%20da%20imagem%206244" class="btn-comprar">Comprar</a>
+    </div>
 
-</body>
-</html>
+    <div class="produto-card">
+        <img src="IMG_6245.jpeg">
+        <div class="badge">PREMIUM</div>
+        <div class="brand">The Ordinary / Fragrance</div>
+        <div class="name">Perfume Velvet Rose</div>
+        <div class="price">R$
