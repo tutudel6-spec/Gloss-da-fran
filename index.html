@@ -17,14 +17,13 @@
         }
         .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
 
-        /* Barra de Pesquisa */
         .search-container { padding: 10px 20px; }
-        .search-bar { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; background: #f5f5f5; }
+        .search-bar { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; background: #f5f5f5; font-size: 14px; }
 
         /* Abas */
         .nav-categories { display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 25px; background: #fff; }
         .nav-categories div { 
-            text-decoration: none; color: #888; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            color: #888; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
             padding-bottom: 5px; border-bottom: 2px solid transparent;
         }
         .nav-categories div.active-cat { color: #000; border-bottom: 2px solid #000; }
@@ -58,7 +57,7 @@
 </header>
 
 <div class="search-container">
-    <input type="text" class="search-bar" placeholder="Pesquisar produtos...">
+    <input type="text" class="search-bar" placeholder="Pesquisar na Sephora">
 </div>
 
 <nav class="nav-categories">
@@ -74,28 +73,28 @@
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss LipChilli Original</div>
         <div class="price">R$ 39,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o LipChilli Original" class="btn-comprar">Comprar</a>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
     <div class="produto-card">
         <img src="IMG_6239.webp">
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss ChocoChilli</div>
         <div class="price">R$ 44,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o ChocoChilli" class="btn-comprar">Comprar</a>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
     <div class="produto-card">
         <img src="IMG_6240.jpeg">
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss PinkChilli</div>
         <div class="price">R$ 44,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o PinkChilli" class="btn-comprar">Comprar</a>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
     <div class="produto-card">
         <img src="IMG_6241.jpeg">
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss Chilli Especial</div>
         <div class="price">R$ 49,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o Gloss Especial" class="btn-comprar">Comprar</a>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
 </div>
 
@@ -104,38 +103,23 @@
         <img src="IMG_6244.jpeg">
         <div class="brand">The Ordinary</div>
         <div class="name">Perfume Luxury Essence</div>
-        <div class="price">R$ 600,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o Perfume 6244" class="btn-comprar">Comprar</a>
+        <div class="price">R$ 700,90</div>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
     <div class="produto-card">
         <img src="IMG_6245.jpeg">
         <div class="brand">The Ordinary</div>
         <div class="name">Perfume Velvet Rose</div>
-        <div class="price">R$ 599,90</div>
-        <a href="https://wa.me/5571981982742?text=Quero o Perfume 6245" class="btn-comprar">Comprar</a>
+        <div class="price">R$ 550,90</div>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
     </div>
 </div>
 
 <script>
     function aba(categoria) {
-        // Resetar seções
         document.getElementById('section-gloss').style.display = 'none';
         document.getElementById('section-perfumes').style.display = 'none';
-        
-        // Resetar botões
         document.getElementById('tab-gloss').classList.remove('active-cat');
         document.getElementById('tab-perfumes').classList.remove('active-cat');
         
-        // Ativar o correto
-        if(categoria === 'gloss') {
-            document.getElementById('section-gloss').style.display = 'grid';
-            document.getElementById('tab-gloss').classList.add('active-cat');
-        } else if(categoria === 'perfumes') {
-            document.getElementById('section-perfumes').style.display = 'grid';
-            document.getElementById('tab-perfumes').classList.add('active-cat');
-        }
-    }
-</script>
-
-</body>
-</html>
+        if(categoria === '
