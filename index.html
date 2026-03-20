@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,18 +9,18 @@
         body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 100px; }
         .top-banner { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
         header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; }
-        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; margin: auto; cursor: pointer; }
+        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; margin: auto; }
         .cart-icon { position: relative; cursor: pointer; font-size: 22px; }
         #cart-count { position: absolute; top: -5px; right: -10px; background: #d63384; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; }
         
-        .nav-categories { display: flex; overflow-x: auto; padding: 15px; border-bottom: 1px solid #eee; gap: 25px; justify-content: center; background: #fff; }
+        .nav-categories { display: flex; justify-content: center; padding: 15px; border-bottom: 1px solid #eee; gap: 25px; background: #fff; }
         .nav-categories div { color: #888; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase; padding-bottom: 5px; border-bottom: 2px solid transparent; }
         .nav-categories div.active { color: #000; border-bottom: 2px solid #000; }
 
         .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
-        .produto-card { display: flex; flex-direction: column; border: 1px solid #f2f2f2; padding: 10px; border-radius: 8px; text-align: center; background: #fff; }
+        .produto-card { display: flex; flex-direction: column; border: 1px solid #f2f2f2; padding: 10px; border-radius: 8px; text-align: center; }
         .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; cursor: pointer; }
-        .name { font-size: 11px; font-weight: 600; margin: 8px 0 4px; height: 32px; overflow: hidden; line-height: 1.2; }
+        .name { font-size: 11px; font-weight: 600; margin: 8px 0 4px; height: 32px; overflow: hidden; }
         .price { font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #d63384; }
         .btn-add { background: #000; color: #fff; padding: 10px; font-size: 10px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
         
@@ -33,11 +32,11 @@
 </head>
 <body>
 
-<div class="top-banner">✨ PROMOÇÃO: FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
+<div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
 
 <header>
     <div style="width: 22px;"></div>
-    <div class="logo" onclick="window.location.reload()">SEPHORA</div>
+    <div class="logo">SEPHORA</div>
     <div class="cart-icon" onclick="window.location.href='pagamento.html'">🛍️ <span id="cart-count">0</span></div>
 </header>
 
@@ -53,108 +52,10 @@
         <button class="btn-add" onclick="add('LipChilli Original', 49.00)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'Aroma de chocolate.', '49.00', 'IMG_6239.webp')">
+        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'Aroma chocolate.', '49.00', 'IMG_6239.webp')">
         <div class="name">ChocoChilli</div><div class="price">R$ 49,00</div>
         <button class="btn-add" onclick="add('ChocoChilli', 49.00)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'Rosa clássico.', '49.00', 'IMG_6240.jpeg')">
-        <div class="name">PinkChilli</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('PinkChilli', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor intensa.', '49.00', 'IMG_6241.jpeg')">
-        <div class="name">Chilli Especial</div><div class="price">R$ 49,00</div>
-        <button class="btn-add" onclick="add('Chilli Especial', 49.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6250.jpeg" onclick="verInfo('Gloss Glacê', 'Brilho espelhado.', '42.00', 'IMG_6250.jpeg')">
-        <div class="name">Gloss Glacê</div><div class="price">R$ 42,00</div>
-        <button class="btn-add" onclick="add('Gloss Glacê', 42.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6251.jpeg" onclick="verInfo('Gloss Vini', 'Efeito verniz.', '42.00', 'IMG_6251.jpeg')">
-        <div class="name">Gloss Vini</div><div class="price">R$ 42,00</div>
-        <button class="btn-add" onclick="add('Gloss Vini', 42.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6252.webp" onclick="verInfo('Gloss Gold', 'Partículas douradas.', '46.00', 'IMG_6252.webp')">
-        <div class="name">Gloss Gold</div><div class="price">R$ 46,00</div>
-        <button class="btn-add" onclick="add('Gloss Gold', 46.00)">Adicionar</button>
-    </div>
-</div>
-
-<div id="sec-perfumes" class="vitrine" style="display: none;">
-    <div class="produto-card">
-        <img src="IMG_6244.jpeg" onclick="verInfo('Luxury Essence', 'Floral amadeirado.', '199.00', 'IMG_6244.jpeg')">
-        <div class="name">Luxury Essence</div><div class="price">R$ 199,00</div>
-        <button class="btn-add" onclick="add('Luxury Essence', 199.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6245.jpeg" onclick="verInfo('Velvet Rose', 'Elegante e doce.', '199.00', 'IMG_6245.jpeg')">
-        <div class="name">Velvet Rose</div><div class="price">R$ 199,00</div>
-        <button class="btn-add" onclick="add('Velvet Rose', 199.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6253.png" onclick="verInfo('Midnight Dream', 'Noturno sedutor.', '210.00', 'IMG_6253.png')">
-        <div class="name">Midnight Dream</div><div class="price">R$ 210,00</div>
-        <button class="btn-add" onclick="add('Midnight Dream', 210.00)">Adicionar</button>
-    </div>
-    <div class="produto-card">
-        <img src="IMG_6254.jpeg" onclick="verInfo('Pure Summer', 'Refrescante.', '175.00', 'IMG_6254.jpeg')">
-        <div class="name">Pure Summer</div><div class="price">R$ 175,00</div>
-        <button class="btn-add" onclick="add('Pure Summer', 175.00)">Adicionar</button>
-    </div>
-</div>
-
-<a href="pagamento.html" class="floating-cart" id="btn-flutuante">VER SACOLA (R$ <span id="total-fl">0</span>)</a>
-
-<div id="modal">
-    <div class="modal-content">
-        <span style="position:absolute; top:10px; right:15px; font-size:25px; cursor:pointer;" onclick="fecharModal()">&times;</span>
-        <img id="modal-img" class="modal-img">
-        <h2 id="modal-titulo" style="font-size:18px;"></h2>
-        <p id="modal-desc" style="color:#666; font-size:13px; margin:15px 0;"></p>
-        <div id="modal-preco" style="font-weight:bold; font-size:22px; color:#d63384; margin-bottom:15px;"></div>
-        <button class="btn-add" style="width:100%; padding:15px;" id="btn-modal-add">Adicionar</button>
-    </div>
-</div>
-
-<script>
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    function add(nome, preco) {
-        carrinho.push({nome, preco});
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        atualizarCart();
-        fecharModal();
-    }
-    function atualizarCart() {
-        document.getElementById('cart-count').innerText = carrinho.length;
-        if(carrinho.length > 0) {
-            document.getElementById('btn-flutuante').style.display = 'block';
-            let total = carrinho.reduce((sum, item) => sum + item.preco, 0);
-            document.getElementById('total-fl').innerText = total.toFixed(2);
-        }
-    }
-    function verInfo(nome, desc, preco, img) {
-        document.getElementById('modal-titulo').innerText = nome;
-        document.getElementById('modal-desc').innerText = desc;
-        document.getElementById('modal-preco').innerText = "R$ " + preco;
-        document.getElementById('modal-img').src = img;
-        document.getElementById('btn-modal-add').onclick = function() { add(nome, parseFloat(preco)); };
-        document.getElementById('modal').style.display = 'flex';
-    }
-    function fecharModal() { document.getElementById('modal').style.display = 'none'; }
-    function aba(cat) {
-        document.getElementById('sec-gloss').style.display = (cat === 'gloss') ? 'grid' : 'none';
-        document.getElementById('sec-perfumes').style.display = (cat === 'perfumes') ? 'grid' : 'none';
-        document.getElementById('tab-gloss').className = (cat === 'gloss' ? 'active' : '');
-        document.getElementById('tab-perfumes').className = (cat === 'perfumes' ? 'active' : '');
-    }
-    window.onload = function() {
-        atualizarCart();
-        aba('gloss'); // Garante que começa na aba de Gloss
-    };
-</script>
-</body>
-</html>
+        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'Brilho rosa.', '49.00', 'IMG_6240.jpeg')">
+        <div class
