@@ -10,123 +10,69 @@
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
         
-        /* Banner Preto */
         .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Header Sephora */
         header { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            padding: 15px 20px; 
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            background: white;
-            z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between; 
+            padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 1000;
         }
         .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
-        .header-icons { display: flex; gap: 15px; font-size: 18px; }
 
-        /* Menu de Categorias */
+        /* Abas */
         .nav-categories { 
-            display: flex; 
-            overflow-x: auto; 
-            white-space: nowrap; 
-            padding: 15px 10px; 
-            border-bottom: 1px solid #eee;
-            gap: 25px;
-            scrollbar-width: none;
+            display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 25px;
         }
-        .nav-categories::-webkit-scrollbar { display: none; }
         .nav-categories a { 
-            text-decoration: none; 
-            color: #000; 
-            font-size: 11px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
+            text-decoration: none; color: #888; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            padding-bottom: 5px;
         }
-        .active-cat { border-bottom: 2px solid #000; padding-bottom: 5px; }
-
-        /* Títulos das Secções */
-        h2 { padding: 25px 20px 5px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; border-top: 8px solid #f9f9f9; margin-top: 0; }
-        h2.first { border-top: none; }
+        .nav-categories a.active-cat { color: #000; border-bottom: 2px solid #000; }
 
         /* Vitrine */
-        .vitrine { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px; 
-            padding: 20px; 
-            max-width: 1000px; 
-            margin: auto; 
-        }
+        .secao { display: none; padding: 20px; max-width: 1000px; margin: auto; }
+        .secao.ativa { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
-        .produto-card { 
-            text-decoration: none; 
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .produto-card img { 
-            width: 100%; 
-            aspect-ratio: 1/1; 
-            object-fit: cover; 
-            border-radius: 2px;
-            background: #f9f9f9;
-        }
+        .produto-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #f9f9f9; }
         
-        .badge { 
-            background: #000; color: #fff; font-size: 9px; 
-            padding: 4px 10px; width: fit-content; 
-            margin-top: 10px; text-transform: uppercase; 
-            border-radius: 20px; font-weight: bold;
-        }
-
         .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 8px; font-weight: bold; }
-        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; line-height: 1.3; }
-        .price { font-size: 15px; font-weight: 800; color: #000; margin-top: 2px; }
+        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; }
+        .price { font-size: 15px; font-weight: 800; color: #000; }
         
         .btn-comprar { 
-            background: #d63384; color: #fff; text-align: center; 
-            padding: 12px 0; font-size: 11px; font-weight: bold; 
-            border-radius: 2px; margin-top: 10px; text-transform: uppercase;
-            text-decoration: none; letter-spacing: 1px;
+            background: #d63384; color: #fff; text-align: center; padding: 12px 0; 
+            font-size: 11px; font-weight: bold; border-radius: 2px; margin-top: 10px; 
+            text-transform: uppercase; text-decoration: none;
         }
 
-        @media (min-width: 768px) { .vitrine { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+        @media (min-width: 768px) { .secao.ativa { grid-template-columns: 1fr 1fr 1fr 1fr; } }
     </style>
 </head>
 <body>
 
-<div class="top-banner">✨ PORTES GRÁTIS EM COMPRAS ACIMA DE R$ 150 ✨</div>
+<div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
 
 <header>
     <div style="font-size: 22px;">☰</div>
     <div class="logo">SEPHORA</div>
-    <div class="header-icons">🔍 👤 🛍️</div>
+    <div class="header-icons">🔍 🛍️</div>
 </header>
 
 <nav class="nav-categories">
-    <a href="#maquiagem" class="active-cat">MAQUIAGEM</a>
-    <a href="#perfumes">PERFUMES</a>
-    <a href="#">SKINCARE</a>
-    <a href="#">CABELOS</a>
+    <a onclick="mostrar('maquiagem')" id="btn-maquiagem" class="active-cat">MAQUIAGEM</a>
+    <a onclick="mostrar('perfumes')" id="btn-perfumes">PERFUMES</a>
+    <a>SKINCARE</a>
+    <a>CABELOS</a>
 </nav>
 
-<h2 id="maquiagem" class="first">Maquilhagem: Coleção Chilli</h2>
-<div class="vitrine">
+<div id="maquiagem" class="secao ativa">
     <div class="produto-card">
         <img src="IMG_6237.webp">
-        <div class="badge">MAIS VENDIDO</div>
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss LipChilli Original</div>
         <div class="price">R$ 39,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20LipChilli%20Original" class="btn-comprar">Comprar</a>
     </div>
-
     <div class="produto-card">
         <img src="IMG_6239.webp">
         <div class="brand">Fran by Franciny Ehlke</div>
@@ -136,21 +82,38 @@
     </div>
 </div>
 
-<h2 id="perfumes">Perfumes: Fragrâncias</h2>
-<div class="vitrine">
+<div id="perfumes" class="secao">
     <div class="produto-card">
         <img src="IMG_6244.jpeg">
-        <div class="badge">LANÇAMENTO</div>
-        <div class="brand">The Ordinary / Fragrance</div>
+        <div class="brand">The Ordinary</div>
         <div class="name">Perfume Luxury Essence</div>
-        <div class="price">R$ 769,90</div>
-        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%20da%20imagem%206244" class="btn-comprar">Comprar</a>
+        <div class="price">R$ 189,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%206244" class="btn-comprar">Comprar</a>
     </div>
-
     <div class="produto-card">
         <img src="IMG_6245.jpeg">
-        <div class="badge">PREMIUM</div>
-        <div class="brand">The Ordinary / Fragrance</div>
+        <div class="brand">The Ordinary</div>
         <div class="name">Perfume Velvet Rose</div>
-        <div class="price">R$ 670,40
-         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%20da%20imagem%206244" class="btn-comprar">Comprar</a>
+        <div class="price">R$ 199,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%206245" class="btn-comprar">Comprar</a>
+    </div>
+</div>
+
+<script>
+    function mostrar(id) {
+        // Esconde todas as seções
+        document.getElementById('maquiagem').classList.remove('ativa');
+        document.getElementById('perfumes').classList.remove('ativa');
+        
+        // Tira a cor preta de todos os botões
+        document.getElementById('btn-maquiagem').classList.remove('active-cat');
+        document.getElementById('btn-perfumes').classList.remove('active-cat');
+        
+        // Mostra só a que clicou
+        document.getElementById(id).classList.add('ativa');
+        document.getElementById('btn-' + id).classList.add('active-cat');
+    }
+</script>
+
+</body>
+</html>
