@@ -1,69 +1,88 @@
 
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kit Gloss e Lápis Labial - Fran by Franciny Ehlke</title>
+    <title>Gloss LipChilli - Fran by Franciny Ehlke</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; color: #333; }
-        header { border-bottom: 1px solid #eee; padding: 20px; text-align: center; font-weight: bold; letter-spacing: 2px; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; color: #1a1a1a; background: #fff; line-height: 1.5; }
+        header { border-bottom: 1px solid #e5e5e5; padding: 15px; text-align: center; font-weight: 700; letter-spacing: 3px; font-size: 1.2rem; }
         
-        .container { display: flex; max-width: 1100px; margin: 40px auto; gap: 50px; padding: 0 20px; }
+        .container { display: flex; max-width: 1000px; margin: 30px auto; gap: 40px; padding: 0 20px; }
         
-        /* Lado Esquerdo: Imagens */
-        .product-images { flex: 1.5; }
-        .main-img { width: 100%; border: 1px solid #f5f5f5; border-radius: 4px; }
-        .thumbnails { display: flex; gap: 10px; margin-top: 15px; }
-        .thumb { width: 70px; height: 70px; border: 1px solid #ddd; cursor: pointer; }
+        /* Galeria de Imagens */
+        .product-images { flex: 1.2; }
+        .main-img { width: 100%; border-radius: 8px; border: 1px solid #f0f0f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .thumbnails { display: flex; gap: 10px; margin-top: 15px; overflow-x: auto; }
+        .thumb { width: 80px; height: 80px; border: 1px solid #eee; border-radius: 4px; object-fit: cover; cursor: pointer; }
 
-        /* Lado Direito: Info de Compra */
+        /* Informações do Produto */
         .product-info { flex: 1; }
-        .brand { font-size: 14px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; }
-        .product-name { font-size: 24px; font-weight: 300; margin-bottom: 10px; line-height: 1.2; }
-        .rating { color: #FFB400; font-size: 18px; margin-bottom: 20px; }
-        .price { font-size: 22px; font-weight: bold; margin-bottom: 5px; }
-        .installments { font-size: 14px; color: #666; margin-bottom: 30px; }
-
-        .btn-buy { 
-            background: #000; color: #fff; width: 100%; padding: 15px; 
-            border: none; font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        .btn-buy:hover { background: #333; }
-
-        .description-box { margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+        .brand { font-size: 13px; text-transform: uppercase; font-weight: 600; color: #666; margin-bottom: 8px; letter-spacing: 1px; }
+        .product-name { font-size: 28px; font-weight: 700; margin: 0 0 15px 0; color: #000; }
+        .rating { color: #ffbc00; font-size: 14px; margin-bottom: 25px; display: flex; align-items: center; gap: 5px; }
         
-        @media (max-width: 768px) { .container { flex-direction: column; } }
+        .price-container { margin-bottom: 25px; border-top: 1px solid #eee; padding-top: 20px; }
+        .price { font-size: 26px; font-weight: 700; color: #d63384; }
+        .installments { font-size: 14px; color: #777; }
+
+        /* Botão de Compra Estilo Sephora */
+        .btn-buy { 
+            background: #000; color: #fff; width: 100%; padding: 18px; 
+            border: none; font-size: 16px; font-weight: 700; cursor: pointer; 
+            text-decoration: none; display: inline-block; text-align: center;
+            border-radius: 4px; transition: 0.3s; margin-top: 10px;
+        }
+        .btn-buy:hover { background: #333; transform: translateY(-2px); }
+
+        .description { margin-top: 35px; font-size: 15px; color: #444; }
+        .description h3 { font-size: 16px; text-transform: uppercase; border-bottom: 2px solid #000; display: inline-block; margin-bottom: 10px; }
+
+        /* Ajuste para Celular */
+        @media (max-width: 768px) { 
+            .container { flex-direction: column; margin-top: 15px; }
+            .product-name { font-size: 22px; }
+        }
     </style>
 </head>
 <body>
 
-<header>SEPHORA CLONE - FRAN BY FRANCINY EHLKE</header>
+<header>SEPHORA | FRAN</header>
 
 <div class="container">
     <div class="product-images">
-        <img src="https://via.placeholder.com/600x600?text=Gloss+Fran+Principal" alt="Gloss" class="main-img">
+        <img src="https://m.media-amazon.com/images/I/5160S-YI5+L._AC_SL1000_.jpg" alt="Gloss LipChilli" class="main-img">
         <div class="thumbnails">
-            <img src="https://via.placeholder.com/70" class="thumb">
-            <img src="https://via.placeholder.com/70" class="thumb">
-            <img src="https://via.placeholder.com/70" class="thumb">
+            <img src="https://m.media-amazon.com/images/I/41-iL98NfFL._AC_SL1000_.jpg" class="thumb">
+            <img src="https://m.media-amazon.com/images/I/510HnI2n8PL._AC_SL1000_.jpg" class="thumb">
+            <img src="https://m.media-amazon.com/images/I/51K69pX4r1L._AC_SL1000_.jpg" class="thumb">
         </div>
     </div>
 
     <div class="product-info">
-        <div class="brand">FRAN BY FRANCINY EHLKE</div>
-        <h1 class="product-name">Kit Gloss Lipchilli & Lápis Labial LoveChilli</h1>
-        <div class="rating">★★★★★ <span style="color: #666; font-size: 12px;">(1.234 avaliações)</span></div>
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <h1 class="product-name">Gloss Labial LipChilli - Efeito Aumento Labial</h1>
         
-        <div class="price">R$ 149,90</div>
-        <div class="installments">ou 10x de R$ 14,99</div>
+        <div class="rating">
+            ★★★★★ <span>(4.9 | 2.540 avaliações)</span>
+        </div>
+        
+        <div class="price-container">
+            <div class="price">R$ 54,90</div>
+            <div class="installments">ou 3x de R$ 18,30 sem juros</div>
+        </div>
 
-        <p><strong>Cor:</strong> Nude Clássico</p>
-        <button class="btn-buy">ADICIONAR À SACOLA</button>
+        <p style="font-size: 14px; margin-bottom: 20px;"><strong>Cor:</strong> Original (Transparente com brilho)</p>
 
-        <div class="description-box">
+        <a href="https://wa.me/5571981982742?text=Olá!%20Vi%20o%20Gloss%20da%20Fran%20no%20site%20e%20quero%20comprar!" class="btn-buy">
+            COMPRAR PELO WHATSAPP
+        </a>
+
+        <div class="description">
             <h3>O que é?</h3>
-            <p>O kit perfeito para lábios volumosos. O LipChilli traz o efeito pump imediato enquanto o lápis define o contorno com alta pigmentação.</p>
+            <p>O LipChilli é o segredo da Fran para lábios volumosos e hidratados. Sua fórmula contém Ácido Hialurônico e Vitamina E, proporcionando um efeito pump imediato e brilho intenso que não gruda.</p>
         </div>
     </div>
 </div>
