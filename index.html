@@ -9,19 +9,15 @@
     <title>Sephora | Coleção Fran</title>
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
-        
         .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-
         header { 
             display: flex; align-items: center; justify-content: space-between; 
             padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 1000;
         }
         .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
-
+        
         /* Abas */
-        .nav-categories { 
-            display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 25px;
-        }
+        .nav-categories { display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 25px; }
         .nav-categories a { 
             text-decoration: none; color: #888; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
             padding-bottom: 5px;
@@ -33,10 +29,10 @@
         .secao.ativa { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
         .produto-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #f9f9f9; }
+        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #f9f9f9; border-radius: 4px; }
         
         .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 8px; font-weight: bold; }
-        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; }
+        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; line-height: 1.3; }
         .price { font-size: 15px; font-weight: 800; color: #000; }
         
         .btn-comprar { 
@@ -59,13 +55,13 @@
 </header>
 
 <nav class="nav-categories">
-    <a onclick="mostrar('maquiagem')" id="btn-maquiagem" class="active-cat">MAQUIAGEM</a>
+    <a onclick="mostrar('gloss')" id="btn-gloss" class="active-cat">GLOSS</a>
     <a onclick="mostrar('perfumes')" id="btn-perfumes">PERFUMES</a>
     <a>SKINCARE</a>
     <a>CABELOS</a>
 </nav>
 
-<div id="maquiagem" class="secao ativa">
+<div id="gloss" class="secao ativa">
     <div class="produto-card">
         <img src="IMG_6237.webp">
         <div class="brand">Fran by Franciny Ehlke</div>
@@ -73,12 +69,29 @@
         <div class="price">R$ 39,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20LipChilli%20Original" class="btn-comprar">Comprar</a>
     </div>
+
     <div class="produto-card">
         <img src="IMG_6239.webp">
         <div class="brand">Fran by Franciny Ehlke</div>
         <div class="name">Gloss ChocoChilli</div>
         <div class="price">R$ 44,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20ChocoChilli" class="btn-comprar">Comprar</a>
+    </div>
+
+    <div class="produto-card">
+        <img src="IMG_6240.jpeg">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss PinkChilli</div>
+        <div class="price">R$ 44,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20PinkChilli" class="btn-comprar">Comprar</a>
+    </div>
+
+    <div class="produto-card">
+        <img src="IMG_6241.jpeg">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss Chilli Especial</div>
+        <div class="price">R$ 49,90</div>
+        <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Gloss%20Especial" class="btn-comprar">Comprar</a>
     </div>
 </div>
 
@@ -87,33 +100,18 @@
         <img src="IMG_6244.jpeg">
         <div class="brand">The Ordinary</div>
         <div class="name">Perfume Luxury Essence</div>
-        <div class="price">R$ 189,90</div>
+        <div class="price">R$ 720,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%206244" class="btn-comprar">Comprar</a>
     </div>
     <div class="produto-card">
         <img src="IMG_6245.jpeg">
         <div class="brand">The Ordinary</div>
         <div class="name">Perfume Velvet Rose</div>
-        <div class="price">R$ 199,90</div>
+        <div class="price">R$ 600,90</div>
         <a href="https://wa.me/5571981982742?text=Oi!%20Quero%20o%20Perfume%206245" class="btn-comprar">Comprar</a>
     </div>
 </div>
 
 <script>
     function mostrar(id) {
-        // Esconde todas as seções
-        document.getElementById('maquiagem').classList.remove('ativa');
-        document.getElementById('perfumes').classList.remove('ativa');
-        
-        // Tira a cor preta de todos os botões
-        document.getElementById('btn-maquiagem').classList.remove('active-cat');
-        document.getElementById('btn-perfumes').classList.remove('active-cat');
-        
-        // Mostra só a que clicou
-        document.getElementById(id).classList.add('ativa');
-        document.getElementById('btn-' + id).classList.add('active-cat');
-    }
-</script>
-
-</body>
-</html>
+        // Es
