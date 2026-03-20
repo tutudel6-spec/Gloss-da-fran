@@ -7,56 +7,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento PIX</title>
+    <title>Finalizar Pedido</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; background: #f9f9f9; color: #333; }
-        .card { background: #fff; padding: 30px; border-radius: 15px; max-width: 400px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eee; }
-        .pix-logo { width: 80px; margin-bottom: 15px; }
-        .item-info { margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-        .nome-produto { font-size: 14px; color: #666; margin-bottom: 5px; }
-        .valor-total { font-size: 26px; font-weight: bold; color: #000; }
-        .chave-box { background: #f0f0f0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin: 20px 0; border: 1px dashed #bbb; font-weight: bold; }
-        .btn-copiar { background: #000; color: #fff; padding: 15px; border: none; border-radius: 5px; width: 100%; cursor: pointer; font-weight: bold; text-transform: uppercase; }
-        .btn-zap { background: #25d366; color: #fff; display: block; padding: 15px; margin-top: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; }
-        .aviso { font-size: 11px; color: #999; margin-top: 15px; }
+        body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h3 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .item-carrinho { display: flex; justify-content: space-between; font-size: 14px; margin: 10px 0; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
+        .total { font-size: 20px; font-weight: bold; text-align: right; margin-top: 20px; color: #d63384; }
+        
+        /* Formulário */
+        input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        .btn-pix { background: #000; color: #fff; width: 100%; padding: 15px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        
+        #pix-area { display: none; text-align: center; margin-top: 20px; background: #f0fdf4; padding: 20px; border-radius: 8px; border: 1px dashed #22c55e; }
+        .chave { font-family: monospace; font-weight: bold; background: #fff; padding: 10px; display: block; margin: 10px 0; word-break: break-all; }
+        .btn-whats { background: #25d366; color: #fff; display: block; padding: 15px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" class="pix-logo">
-        <h3>Finalizar Pagamento</h3>
-        
-        <div class="item-info">
-            <div class="nome-produto" id="exibirNome">Produto</div>
-            <div class="valor-total" id="exibirPreco">R$ 0,00</div>
-        </div>
 
-        <p style="font-size: 13px;">Copie a chave aleatória abaixo:</p>
-        <div class="chave-box" id="pix">a11b4306-789b-4608-8e21-4a09e6de87fb</div>
+<div class="container">
+    <a href="index.html" style="text-decoration: none; color: #666; font-size: 12px;">← Continuar comprando</a>
+    <h3>Sua Sacola</h3>
+    <div id="lista-itens"></div>
+    <div class="total">Total: R$ <span id="valor-total">0.00</span></div>
+
+    <h3>Dados de Entrega</h3>
+    <input type="text" id="nome" placeholder="Nome Completo">
+    <input type="text" id="endereco" placeholder="Endereço e Número">
+    <input type="text" id="cidade" placeholder="Cidade / Estado">
+    <input type="text" id="cep" placeholder="CEP">
+
+    <button class="btn-pix" onclick="mostrarPix()">Gerar Pagamento PIX</button>
+
+    <div id="pix-area">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" width="60">
+        <p>Copie a chave aleatória abaixo:</p>
+        <span class="chave" id="chave">a11b4306-789b-4608-8e21-4a09e6de87fb</span>
+        <button style="width:100%; padding:8px; cursor:pointer;" onclick="copiar()">Copiar Chave</button>
         
-        <button class="btn-copiar" onclick="copiar()">Copiar Chave PIX</button>
-        
-        <a href="https://wa.me/5571981982742?text=Oi! Acabei de fazer o PIX. Aqui está o comprovante!" class="btn-zap">Já paguei! Enviar comprovante</a>
-        
-        <div class="aviso">O envio será feito após a confirmação do pagamento.</div>
-        <br>
-        <a href="index.html" style="color:#999; text-decoration:none; font-size:12px;">← Voltar para a loja</a>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">Pague no banco e clique abaixo para finalizar:</p>
+        <a id="link-zap" href="#" class="btn-whats">Enviar Pedido no WhatsApp</a>
     </div>
+</div>
 
-    <script>
-        // Função para pegar o preço e o nome do link
-        const urlParams = new URLSearchParams(window.location.search);
-        const preco = urlParams.get('preco');
-        const nome = urlParams.get('nome');
+<script>
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let lista = document.getElementById('lista-itens');
+    let total = 0;
 
-        if (preco) document.getElementById('exibirPreco').innerText = 'R$ ' + preco;
-        if (nome) document.getElementById('exibirNome').innerText = decodeURIComponent(nome);
+    carrinho.forEach(item => {
+        lista.innerHTML += `<div class="item-carrinho"><span>${item.nome}</span> <b>R$ ${item.preco.toFixed(2)}</b></div>`;
+        total += item.preco;
+    });
+    document.getElementById('valor-total').innerText = total.toFixed(2);
 
-        function copiar() {
-            var text = document.getElementById("pix").innerText;
-            navigator.clipboard.writeText(text);
-            alert("Chave PIX copiada com sucesso!");
-        }
-    </script>
+    function mostrarPix() {
+        const nome = document.getElementById('nome').value;
+        if(!nome) return alert("Por favor, preencha seus dados de entrega!");
+        
+        document.getElementById('pix-area').style.display = 'block';
+        
+        // Preparar mensagem do zap
+        let itensTexto = carrinho.map(i => i.nome).join(", ");
+        let endereco = document.getElementById('endereco').value;
+        let cidade = document.getElementById('cidade').value;
+        
+        let msg = `🛍️ *NOVO PEDIDO*\n\n*Produtos:* ${itensTexto}\n*Total:* R$ ${total.toFixed(2)}\n\n*DADOS DE ENTREGA:*\n*Nome:* ${nome}\n*End:* ${endereco}\n*Cidade:* ${cidade}`;
+        
+        document.getElementById('link-zap').href = "https://wa.me/5571981982742?text=" + encodeURIComponent(msg);
+    }
+
+    function copiar() {
+        navigator.clipboard.writeText(document.getElementById('chave').innerText);
+        alert("Chave copiada!");
+    }
+</script>
+
 </body>
 </html>
