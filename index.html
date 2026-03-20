@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<!DOCTYPE html>
+
+      <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -9,47 +10,27 @@
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; color: #1a1a1a; background: #fff; line-height: 1.5; }
         header { border-bottom: 1px solid #e5e5e5; padding: 15px; text-align: center; font-weight: 700; letter-spacing: 3px; font-size: 1.1rem; text-transform: uppercase; }
-        
         .container { display: flex; max-width: 1000px; margin: 20px auto; gap: 40px; padding: 0 20px; }
-        
-        /* Galeria de Imagens */
         .product-images { flex: 1.2; }
-        .main-img { width: 100%; border-radius: 8px; border: 1px solid #f2f2f2; object-fit: contain; }
+        .main-img { width: 100%; border-radius: 8px; border: 1px solid #f2f2f2; }
         .thumbnails { display: flex; gap: 10px; margin-top: 15px; justify-content: center; }
         .thumb { width: 70px; height: 70px; border: 1px solid #eee; border-radius: 4px; object-fit: cover; }
-
-        /* Informações do Produto */
         .product-info { flex: 1; }
-        .brand { font-size: 12px; text-transform: uppercase; font-weight: 600; color: #888; margin-bottom: 5px; letter-spacing: 1px; }
-        .product-name { font-size: 26px; font-weight: 700; margin: 0 0 10px 0; color: #000; line-height: 1.2; }
-        .rating { color: #000; font-size: 13px; margin-bottom: 20px; display: flex; align-items: center; gap: 5px; text-decoration: underline; font-weight: 500; }
-        
+        .brand { font-size: 12px; text-transform: uppercase; font-weight: 600; color: #888; margin-bottom: 5px; }
+        .product-name { font-size: 26px; font-weight: 700; margin: 0 0 10px 0; color: #000; }
+        .rating { color: #000; font-size: 13px; margin-bottom: 20px; text-decoration: underline; }
         .badges { display: flex; gap: 10px; margin-bottom: 20px; }
-        .badge { background: #f5f5f5; padding: 5px 10px; font-size: 11px; font-weight: bold; border-radius: 3px; text-transform: uppercase; color: #444; }
+        .badge { background: #f5f5f5; padding: 5px 10px; font-size: 11px; font-weight: bold; border-radius: 3px; text-transform: uppercase; }
         .badge-shipping { background: #e8f5e9; color: #2e7d32; }
-
         .price-container { margin-bottom: 25px; border-top: 1px solid #eee; padding-top: 20px; }
         .price { font-size: 32px; font-weight: 700; color: #000; }
-        .installments { font-size: 14px; color: #666; margin-top: 4px; }
-
-        /* Botão Rosa Fran */
         .btn-buy { 
             background: #d63384; color: #fff; width: 100%; padding: 18px; 
             border: none; font-size: 16px; font-weight: 700; cursor: pointer; 
             text-decoration: none; display: inline-block; text-align: center;
-            border-radius: 5px; transition: 0.2s; margin-top: 10px;
-            text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+            border-radius: 5px; transition: 0.2s; margin-top: 10px; text-transform: uppercase;
         }
-        .btn-buy:hover { background: #b82b71; transform: scale(1.02); }
-
-        .description { margin-top: 35px; font-size: 14px; color: #333; border-top: 1px solid #eee; padding-top: 20px; }
-        .description h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
-
-        @media (max-width: 768px) { 
-            .container { flex-direction: column; margin-top: 10px; gap: 20px; }
-            .product-name { font-size: 22px; }
-        }
+        @media (max-width: 768px) { .container { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -58,8 +39,31 @@
 
 <div class="container">
     <div class="product-images">
- 
-        
-        
-           
-        
+        <img src="https://m.media-amazon.com/images/I/41-iL98NfFL._AC_SY606_.jpg" alt="Gloss LipChilli" class="main-img">
+        <div class="thumbnails">
+            <img src="https://m.media-amazon.com/images/I/41-iL98NfFL._AC_SY606_.jpg" class="thumb">
+            <img src="https://m.media-amazon.com/images/I/510HnI2n8PL._AC_SY606_.jpg" class="thumb">
+            <img src="https://m.media-amazon.com/images/I/5160S-YI5+L._AC_SY606_.jpg" class="thumb">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <h1 class="product-name">Gloss Labial LipChilli - Efeito Aumento Labial (Original)</h1>
+        <div class="rating">★★★★★ <span>2.540 Avaliações</span></div>
+        <div class="badges">
+            <span class="badge badge-shipping">🚚 Frete Grátis</span>
+            <span class="badge">✨ 100% Original</span>
+        </div>
+        <div class="price-container">
+            <div class="price">R$ 39,90</div>
+            <div class="installments">ou 3x de R$ 18,30 sem juros</div>
+        </div>
+        <a href="https://wa.me/5571981982742?text=Olá!%20Vi%20o%20Gloss%20da%20Fran%20no%20seu%20site!" class="btn-buy">
+            🛒 Comprar pelo WhatsApp
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
