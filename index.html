@@ -6,32 +6,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagamento Seguro | PIX</title>
+    <title>Sephora | Coleção Fran</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #f9f9f9; text-align: center; padding: 20px; color: #1a1a1a; }
-        .checkout-card { background: white; padding: 30px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .pix-logo { width: 80px; margin-bottom: 20px; }
-        h2 { font-size: 20px; margin-bottom: 10px; }
-        p { font-size: 14px; color: #666; line-height: 1.5; }
+        body { font-family: Arial, sans-serif; margin: 0; background: #fff; }
+        .top-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 1000; }
+        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; margin: auto; }
         
-        .chave-container { background: #f0f0f0; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px dashed #bbb; position: relative; }
-        .chave-texto { font-size: 13px; font-family: monospace; word-break: break-all; color: #333; font-weight: bold; }
-        
-        .btn-copiar { background: #000; color: #fff; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
-        .btn-copiar:active { background: #333; }
+        /* Abas Estilo Sephora */
+        .nav-categories { display: flex; overflow-x: auto; padding: 15px 10px; border-bottom: 1px solid #eee; gap: 20px; }
+        .nav-categories div { color: #888; font-size: 11px; font-weight: bold; text-transform: uppercase; cursor: pointer; padding-bottom: 5px; }
+        .nav-categories div.active { color: #000; border-bottom: 2px solid #000; }
 
-        .instrucoes { font-size: 12px; color: #888; margin-top: 25px; text-align: left; background: #fff8f8; padding: 10px; border-left: 3px solid #d63384; }
-        
-        .btn-whatsapp { background: #25d366; color: white; display: block; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; font-size: 14px; }
-        .btn-voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 13px; }
+        /* Vitrine */
+        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
+        .produto-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; background: #f9f9f9; }
+        .brand { font-size: 10px; color: #888; text-transform: uppercase; margin-top: 8px; font-weight: bold; }
+        .name { font-size: 12px; font-weight: 600; margin: 4px 0; height: 32px; overflow: hidden; }
+        .price { font-size: 15px; font-weight: bold; color: #000; }
+        .btn-comprar { background: #d63384; color: #fff; text-align: center; padding: 12px; font-size: 11px; font-weight: bold; border-radius: 2px; margin-top: 10px; text-decoration: none; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-<div class="checkout-card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" class="pix-logo" alt="PIX">
-    <h2>Finalize seu pedido</h2>
-    <p>Copie a chave aleatória abaixo e pague no app do seu banco.</p>
-    
-    <div class="chave-container">
-        <div class="chave-texto" id="chavePix">a11b4306-789b-
+<div class="top-banner">✨ FRETE GRÁTIS ACIMA DE R$ 150 ✨</div>
+
+<header>
+    <div class="logo">SEPHORA</div>
+</header>
+
+<nav class="nav-categories">
+    <div onclick="mudar('gloss')" id="t-gloss" class="active">GLOSS</div>
+    <div onclick="mudar('perfumes')" id="t-perfumes">PERFUMES</div>
+</nav>
+
+<div id="sec-gloss" class="vitrine">
+    <div class="produto-card">
+        <img src="IMG_6237.webp">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss LipChilli Original</div>
+        <div class="price">R$ 39,90</div>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6239.webp">
+        <div class="brand">Fran by Franciny Ehlke</div>
+        <div class="name">Gloss ChocoChilli</div>
+        <div class="price">R$ 44,90</div>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
+    </div>
+</div>
+
+<div id="sec-perfumes" class="vitrine" style="display: none;">
+    <div class="produto-card">
+        <img src="IMG_6244.jpeg">
+        <div class="brand">Fragrância</div>
+        <div class="name">Perfume Luxury</div>
+        <div class="price">R$ 560,90</div>
+        <a href="pagamento.html" class="btn-comprar">Comprar</a>
+    </div>
+</div>
+
+<script>
+    function mudar(cat) {
+        document.getElementById('sec-gloss').style.display = (cat === 'gloss') ? 'grid' : 'none';
+        document.getElementById('sec-perfumes').style.display = (cat === 'perfumes') ? 'grid' : 'none';
+        document.getElementById('t-gloss').classList.toggle('active', cat === 'gloss');
+        document.getElementById('t-perfumes').classList.toggle('active', cat === 'perfumes');
+    }
+</script>
+
+</body>
+</html>
