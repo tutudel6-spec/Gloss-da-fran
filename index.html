@@ -6,36 +6,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sephora | Carrinho</title>
+    <title>Sephora | Coleção Fran</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #fff; }
+        body { font-family: sans-serif; margin: 0; background: #fff; padding-bottom: 80px; }
         .top-banner { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 10px; text-transform: uppercase; }
-        header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; sticky: top; background: #fff; z-index: 1000; position: sticky; top: 0; }
-        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; }
+        .logo { font-size: 18px; font-weight: bold; letter-spacing: 5px; cursor: pointer; }
         .cart-icon { position: relative; cursor: pointer; font-size: 22px; }
         #cart-count { position: absolute; top: -5px; right: -10px; background: #d63384; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 50%; }
         
-        .nav-categories { display: flex; overflow-x: auto; padding: 15px; border-bottom: 1px solid #eee; gap: 20px; }
-        .nav-categories div { color: #888; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .nav-categories { display: flex; overflow-x: auto; padding: 15px; border-bottom: 1px solid #eee; gap: 20px; justify-content: center; }
+        .nav-categories div { color: #888; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase; padding-bottom: 5px; }
         .nav-categories div.active { color: #000; border-bottom: 2px solid #000; }
 
-        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-        .produto-card { display: flex; flex-direction: column; border: 1px solid #f0f0f0; padding: 10px; border-radius: 8px; }
-        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; }
-        .name { font-size: 12px; font-weight: 600; margin: 8px 0 4px; height: 32px; overflow: hidden; }
-        .price { font-size: 14px; font-weight: bold; margin-bottom: 10px; }
-        .btn-add { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 10px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; }
+        .vitrine { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
+        .produto-card { display: flex; flex-direction: column; border: 1px solid #f5f5f5; padding: 10px; border-radius: 8px; text-align: center; }
+        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; cursor: pointer; }
+        .name { font-size: 12px; font-weight: 600; margin: 8px 0 4px; height: 32px; overflow: hidden; cursor: pointer; }
+        .price { font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #d63384; }
+        .btn-add { background: #000; color: #fff; padding: 10px; font-size: 10px; font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
         
-        .floating-cart { position: fixed; bottom: 20px; right: 20px; background: #d63384; color: #fff; padding: 15px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; }
+        /* Modal de Detalhes */
+        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+        .modal-content { background: #fff; padding: 20px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; text-align: center; }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+        .modal-img { width: 150px; border-radius: 8px; margin-bottom: 15px; }
+
+        .floating-cart { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #000; color: #fff; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; display: none; z-index: 1500; width: 80%; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="top-banner">Frete grátis em pedidos acima de R$ 150</div>
+<div class="top-banner">✨ Frete grátis acima de R$ 150 ✨</div>
 
 <header>
     <div style="font-size: 20px;">☰</div>
-    <div class="logo">SEPHORA</div>
+    <div class="logo" onclick="window.location.reload()">SEPHORA</div>
     <div class="cart-icon" onclick="window.location.href='pagamento.html'">🛍️ <span id="cart-count">0</span></div>
 </header>
 
@@ -46,29 +52,58 @@
 
 <div id="sec-gloss" class="vitrine">
     <div class="produto-card">
-        <img src="IMG_6237.webp">
+        <img src="IMG_6237.webp" onclick="verInfo('LipChilli Original', 'O gloss queridinho que aumenta os lábios na hora! Com ácido hialurônico.', '39.90', 'IMG_6237.webp')">
         <div class="name">LipChilli Original</div>
         <div class="price">R$ 39,90</div>
         <button class="btn-add" onclick="add('LipChilli Original', 39.90)">Adicionar</button>
     </div>
     <div class="produto-card">
-        <img src="IMG_6239.webp">
+        <img src="IMG_6239.webp" onclick="verInfo('ChocoChilli', 'Edição limitada com aroma de chocolate e brilho intenso.', '44.90', 'IMG_6239.webp')">
         <div class="name">ChocoChilli</div>
-        <div class="price">R$ 44.90</div>
+        <div class="price">R$ 44,90</div>
         <button class="btn-add" onclick="add('ChocoChilli', 44.90)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6240.jpeg" onclick="verInfo('PinkChilli', 'Tom rosado incrível com efeito bocão e hidratação profunda.', '44.90', 'IMG_6240.jpeg')">
+        <div class="name">PinkChilli</div>
+        <div class="price">R$ 44,90</div>
+        <button class="btn-add" onclick="add('PinkChilli', 44.90)">Adicionar</button>
+    </div>
+    <div class="produto-card">
+        <img src="IMG_6241.jpeg" onclick="verInfo('Chilli Especial', 'Cor única para festas, brilho que dura o dia todo.', '49.90', 'IMG_6241.jpeg')">
+        <div class="name">Chilli Especial</div>
+        <div class="price">R$ 49,90</div>
+        <button class="btn-add" onclick="add('Chilli Especial', 49.90)">Adicionar</button>
     </div>
 </div>
 
 <div id="sec-perfumes" class="vitrine" style="display: none;">
     <div class="produto-card">
-        <img src="IMG_6244.jpeg">
+        <img src="IMG_6244.jpeg" onclick="verInfo('Luxury Essence', 'Fragrância marcante com notas florais e fundo amadeirado.', '189.90', 'IMG_6244.jpeg')">
         <div class="name">Luxury Essence</div>
         <div class="price">R$ 189,90</div>
         <button class="btn-add" onclick="add('Luxury Essence', 189.90)">Adicionar</button>
     </div>
+    <div class="produto-card">
+        <img src="IMG_6245.jpeg" onclick="verInfo('Velvet Rose', 'Elegante e sofisticado, ideal para noites especiais.', '199.90', 'IMG_6245.jpeg')">
+        <div class="name">Velvet Rose</div>
+        <div class="price">R$ 199,90</div>
+        <button class="btn-add" onclick="add('Velvet Rose', 199.90)">Adicionar</button>
+    </div>
 </div>
 
-<a href="pagamento.html" class="floating-cart" id="btn-flutuante">Ver Sacola (R$ <span id="total-flutuante">0</span>)</a>
+<a href="pagamento.html" class="floating-cart" id="btn-flutuante">VER SACOLA (R$ <span id="total-fl">0</span>)</a>
+
+<div id="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="fecharModal()">&times;</span>
+        <img id="modal-img" class="modal-img">
+        <h2 id="modal-titulo"></h2>
+        <p id="modal-desc" style="color:#666; font-size:14px;"></p>
+        <div id="modal-preco" style="font-weight:bold; font-size:20px; margin:15px 0;"></div>
+        <button class="btn-add" style="width:100%" id="btn-modal-add">Adicionar à Sacola</button>
+    </div>
+</div>
 
 <script>
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -77,7 +112,7 @@
         carrinho.push({nome, preco});
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
         atualizarCart();
-        alert(nome + " adicionado!");
+        fecharModal();
     }
 
     function atualizarCart() {
@@ -85,9 +120,22 @@
         if(carrinho.length > 0) {
             document.getElementById('btn-flutuante').style.display = 'block';
             let total = carrinho.reduce((sum, item) => sum + item.preco, 0);
-            document.getElementById('total-flutuante').innerText = total.toFixed(2);
+            document.getElementById('total-fl').innerText = total.toFixed(2);
+        } else {
+            document.getElementById('btn-flutuante').style.display = 'none';
         }
     }
+
+    function verInfo(nome, desc, preco, img) {
+        document.getElementById('modal-titulo').innerText = nome;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-preco').innerText = "R$ " + preco;
+        document.getElementById('modal-img').src = img;
+        document.getElementById('btn-modal-add').onclick = function() { add(nome, parseFloat(preco)); };
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function fecharModal() { document.getElementById('modal').style.display = 'none'; }
 
     function aba(cat) {
         document.getElementById('sec-gloss').style.display = (cat === 'gloss') ? 'grid' : 'none';
@@ -98,6 +146,5 @@
 
     atualizarCart();
 </script>
-
 </body>
 </html>
